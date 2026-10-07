@@ -1,0 +1,396 @@
+/* ==========================================================
+   styles.css — estilos de HearHome (solo CSS, sin JavaScript)
+   ========================================================== */
+
+/* ---------- 1. COLORES (cambia la paleta aquí) ---------- */
+:root {
+  --fondo: #EEF3F4;
+  --tarjeta: #FFFFFF;
+  --texto: #14282B;
+  --gris: #5F7377;
+  --linea: #D9E3E5;
+  --marca: #0F766E;
+  --marca-texto: #FFFFFF;
+  --ok: #157347;
+  --ok-fondo: #DDF3E6;
+  --aviso: #8A5A00;
+  --aviso-fondo: #FFEFC7;
+  --mal: #B3261E;
+  --mal-fondo: #FCE0DD;
+}
+
+/* Modo oscuro automático */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fondo: #0E1B1D;
+    --tarjeta: #162A2D;
+    --texto: #E7F1F2;
+    --gris: #97B0B3;
+    --linea: #27413F;
+    --marca: #38B2A6;
+    --marca-texto: #062321;
+    --ok: #6EE0A0;
+    --ok-fondo: #17382A;
+    --aviso: #F5C451;
+    --aviso-fondo: #3B2E0E;
+    --mal: #FF9C94;
+    --mal-fondo: #401B18;
+  }
+}
+
+/* ---------- 2. BASE ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  line-height: 1.4;
+}
+
+.contenedor {
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 1rem 1rem 6rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+h2 {
+  margin: 0 0 .25rem;
+  font-size: 1.2rem;
+}
+
+p {
+  margin: .25rem 0;
+}
+
+.gris {
+  color: var(--gris);
+}
+
+.chico {
+  font-size: .85rem;
+}
+
+/* ---------- 3. ENCABEZADO ---------- */
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .75rem;
+}
+
+.logo {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.logo span {
+  color: var(--marca);
+}
+
+.usuario {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  text-align: right;
+  font-size: .875rem;
+  line-height: 1.2;
+}
+
+/* ---------- 4. TARJETAS Y FILAS ---------- */
+.tarjeta {
+  background: var(--tarjeta);
+  border: 1px solid var(--linea);
+  border-radius: 18px;
+  padding: 1.25rem;
+}
+
+.fila {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: .5rem;
+}
+
+.separado {
+  margin-top: .75rem;
+  padding-top: .75rem;
+  border-top: 1px solid var(--linea);
+}
+
+.precio {
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+.codigo {
+  margin: .5rem 0;
+  color: var(--marca);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+}
+
+/* ---------- 5. BOTONES ---------- */
+.boton,
+.boton-borde {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: .6rem 1rem;
+  border-radius: 12px;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.boton {
+  background: var(--marca);
+  border: 1px solid var(--marca);
+  color: var(--marca-texto);
+}
+
+.boton-borde {
+  background: transparent;
+  border: 1px solid var(--linea);
+  color: var(--texto);
+}
+
+.ancho {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.acciones {
+  display: flex;
+  gap: .5rem;
+  margin-top: .75rem;
+}
+
+.acciones > * {
+  flex: 1;
+}
+
+/* ---------- 6. INSIGNIAS DE ESTADO ---------- */
+.insignia {
+  display: inline-block;
+  padding: .15rem .65rem;
+  border-radius: 999px;
+  font-size: .8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.insignia.ok {
+  background: var(--ok-fondo);
+  color: var(--ok);
+}
+
+.insignia.aviso {
+  background: var(--aviso-fondo);
+  color: var(--aviso);
+}
+
+.insignia.mal {
+  background: var(--mal-fondo);
+  color: var(--mal);
+}
+
+/* ---------- 7. CAMPOS DE FORMULARIO ---------- */
+.campo {
+  display: block;
+  margin-top: .75rem;
+  font-size: .9rem;
+  font-weight: 600;
+}
+
+/* Espacio interior de los campos: arriba/abajo y izquierda/derecha */
+.campo input,
+.campo select,
+.campo textarea,
+.entrada {
+  display: block;
+  width: 100%;
+  margin-top: .25rem;
+  padding: .85rem 1rem;
+  background: var(--fondo);
+  border: 1px solid var(--linea);
+  border-radius: 12px;
+  color: var(--texto);
+  font: inherit;
+  font-weight: 400;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.boton:focus-visible,
+.boton-borde:focus-visible {
+  outline: 3px solid var(--marca);
+  outline-offset: 2px;
+}
+
+/* Campos que solo ve el residente: aparecen al elegir "Residente" */
+.solo-residente {
+  display: none;
+}
+
+.tarjeta:has(option[value="res"]:checked) .solo-residente {
+  display: block;
+}
+
+/* ---------- 8. OPCIONES REDONDEADAS (categorías) ---------- */
+.opciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: .75rem;
+}
+
+.opciones input {
+  position: absolute;
+  opacity: 0;
+}
+
+.opciones label {
+  padding: .5rem .9rem;
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  font-size: .9rem;
+  cursor: pointer;
+}
+
+.opciones input:checked + label {
+  background: var(--marca);
+  border-color: var(--marca);
+  color: var(--marca-texto);
+}
+
+.opciones input:focus-visible + label {
+  outline: 3px solid var(--marca);
+  outline-offset: 2px;
+}
+
+/* ---------- 9. PESTAÑAS SUPERIORES (Entrar / Crear cuenta) ---------- */
+.pestanas {
+  display: flex;
+  padding: .25rem;
+  background: var(--linea);
+  border-radius: 12px;
+}
+
+.pestanas a {
+  flex: 1;
+  padding: .5rem;
+  border-radius: 9px;
+  color: var(--texto);
+  text-align: center;
+  font-size: .9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.pestanas a.activa {
+  background: var(--tarjeta);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+}
+
+/* ---------- 10. BARRA DE NAVEGACIÓN INFERIOR ---------- */
+.barra-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  background: var(--tarjeta);
+  border-top: 1px solid var(--linea);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.barra-nav a {
+  flex: 1;
+  max-width: 9rem;
+  padding: .85rem .25rem;
+  color: var(--gris);
+  text-align: center;
+  font-size: .9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.barra-nav a.activa {
+  color: var(--marca);
+  box-shadow: inset 0 3px 0 var(--marca);
+}
+
+/* ---------- 11. CHAT ---------- */
+.chat {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  min-height: 40vh;
+}
+
+.burbuja {
+  max-width: 80%;
+  padding: .5rem .75rem;
+  border-radius: 16px;
+  background: var(--fondo);
+  font-size: .9rem;
+}
+
+.burbuja.mia {
+  align-self: flex-end;
+  background: var(--marca);
+  color: var(--marca-texto);
+}
+
+.burbuja b,
+.burbuja small {
+  display: block;
+  font-size: .75rem;
+  opacity: .8;
+}
+
+.burbuja small {
+  text-align: right;
+}
+
+.enviar {
+  display: flex;
+  gap: .5rem;
+}
+
+.enviar .entrada {
+  margin-top: 0;
+}
+
+/* ---------- 12. LISTAS (historial de pagos) ---------- */
+.lista {
+  margin: .5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lista li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .6rem 0;
+  border-top: 1px solid var(--linea);
+  font-size: .9rem;
+}

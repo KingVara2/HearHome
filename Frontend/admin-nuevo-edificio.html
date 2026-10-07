@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nuevo edificio · HearHome</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="contenedor">
+  <header class="encabezado">
+    <h1 class="logo">Hear<span>Home</span></h1>
+    <div class="usuario"><div><b>Sol Vargas</b><br><span class="gris chico">Administrador</span></div><a class="boton-borde" href="index.html">Salir</a></div>
+  </header>
+  <main>
+    <div class="tarjeta">
+      <h2>Nuevo edificio</h2>
+      <label class="campo">Nombre del edificio<input name="nombre" type="text" placeholder="Torre Mar"></label>
+      <label class="campo">Viviendas (separadas por coma)<textarea name="viviendas" rows="2" placeholder="1A, 1B, 2A, 2B"></textarea></label>
+      <button class="boton ancho" type="button">Crear edificio</button>
+      <a class="boton-borde ancho" href="admin-edificios.html">Cancelar</a>
+    </div>
+  </main>
+</div>
+<nav class="barra-nav">
+  <a href="admin-edificios.html" class="activa" aria-current="page">Edificios</a>
+  <a href="admin-accesos.html">Accesos <span class="insignia mal">1</span></a>
+  <a href="admin-solicitudes.html">Solicitudes</a>
+  <a href="admin-chat.html">Chat</a>
+</nav>
+</body>
+</html>

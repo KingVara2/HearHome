@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inicio · HearHome</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="contenedor">
+  <header class="encabezado">
+    <h1 class="logo">Hear<span>Home</span></h1>
+    <div class="usuario"><div><b>Ana Torres</b><br><span class="gris chico">Residente</span></div><a class="boton-borde" href="index.html">Salir</a></div>
+  </header>
+  <main>
+    <section class="tarjeta">
+      <p class="gris chico">Hola, Ana · Torre Mar, vivienda 3B</p>
+      <div class="fila">
+        <div><p class="gris chico">Renta mensual</p><p class="precio">$8,500</p></div>
+        <span class="insignia aviso">Por vencer</span>
+      </div>
+      <p>Vence en 3 días · 9 de octubre</p>
+      <button class="boton ancho" type="button">Avisar que ya pagué</button>
+    </section>
+    <div class="tarjeta">
+      <h2>¿Qué necesitas?</h2>
+      <div class="opciones"><input type="radio" name="categoria" id="c0" checked><label for="c0">Plomería</label><input type="radio" name="categoria" id="c1" ><label for="c1">Electricidad</label><input type="radio" name="categoria" id="c2" ><label for="c2">Mantenimiento</label><input type="radio" name="categoria" id="c3" ><label for="c3">Ruido</label><input type="radio" name="categoria" id="c4" ><label for="c4">Otro</label></div>
+      <label class="campo">Describe el problema<textarea name="texto" rows="3" placeholder="Cuéntanos qué está pasando"></textarea></label>
+      <button class="boton ancho" type="button">Enviar solicitud</button>
+    </div>
+    <h2>Mis solicitudes</h2>
+    <article class="tarjeta">
+      <div class="fila"><b>Plomería</b><span class="insignia aviso">En proceso</span></div>
+      <p>La llave del lavabo del baño gotea.</p>
+      <p class="gris chico">5 de octubre</p>
+    </article>
+  </main>
+</div>
+<nav class="barra-nav">
+  <a href="residente-inicio.html" class="activa" aria-current="page">Inicio</a>
+  <a href="residente-chat.html">Chat</a>
+  <a href="residente-pagos.html">Pagos</a>
+</nav>
+</body>
+</html>

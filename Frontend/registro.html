@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crear cuenta · HearHome</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="contenedor">
+  <header class="encabezado">
+    <h1 class="logo">Hear<span>Home</span></h1>
+  </header>
+  <main>
+    <div class="pestanas">
+      <a href="index.html">Entrar</a>
+      <a href="registro.html" class="activa">Crear cuenta</a>
+    </div>
+    <div class="tarjeta">
+      <h2>Crea tu cuenta</h2>
+      <label class="campo">Nombre completo<input name="nombre" type="text" placeholder="Ingrese su nombre completo..."></label>
+      <label class="campo">Usuario<input name="usuario" type="text" placeholder="Ingrese su nombre de usuario..."></label>
+      <label class="campo">Contraseña<input name="contrasena" type="password" placeholder="Ingrese su contraseña... "></label>
+      <label class="campo">Soy
+        <select name="rol">
+          <option value="adm">Administrador o dueño de un edificio</option>
+          <option value="res">Residente</option>
+        </select>
+      </label>
+      <div class="solo-residente">
+        <label class="campo">Código de tu edificio<input name="codigo" type="text" placeholder="Ingrese el codigo de edificio..."></label>
+        <label class="campo">Tu vivienda<input name="vivienda" type="text" placeholder="Ingrese el numero de vivienda..."></label>
+      </div>
+      <button class="boton ancho" type="button">Crear cuenta</button>
+    </div>
+  </main>
+</div>
+</body>
+</html>

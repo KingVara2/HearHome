@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chat · HearHome</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="contenedor">
+  <header class="encabezado">
+    <h1 class="logo">Hear<span>Home</span></h1>
+    <div class="usuario"><div><b>Sol Vargas</b><br><span class="gris chico">Administrador</span></div><a class="boton-borde" href="index.html">Salir</a></div>
+  </header>
+  <main>
+    <label class="campo">Conversación<select><option>Torre Mar · 3B · Ana Torres</option><option>Torre Mar · 1A · Luis Ramírez</option></select></label>
+    <section class="tarjeta chat">
+      <div class="burbuja"><b>Ana Torres</b>Buenas, ¿cuándo pasa el plomero?<small>10:20</small></div><div class="burbuja mia"><b>Tú</b>Hola Ana, mañana entre 10 y 12.<small>10:32</small></div>
+    </section>
+    <div class="enviar">
+      <input class="entrada" name="mensaje" placeholder="Escribe un mensaje" aria-label="Mensaje">
+      <button class="boton" type="button">Enviar</button>
+    </div>
+  </main>
+</div>
+<nav class="barra-nav">
+  <a href="admin-edificios.html">Edificios</a>
+  <a href="admin-accesos.html">Accesos <span class="insignia mal">1</span></a>
+  <a href="admin-solicitudes.html">Solicitudes</a>
+  <a href="admin-chat.html" class="activa" aria-current="page">Chat</a>
+</nav>
+</body>
+</html>
