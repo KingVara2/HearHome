@@ -3,13 +3,15 @@
 
 <div align="center">
 
+<img src="Backend/assets/hearhome-banner.png" alt="HearHome - Plataforma Integral de Gestión Residencial e Inmobiliaria" width="100%">
+
 ### Plataforma Integral de Gestión Residencial e Inmobiliaria
 
 **Una forma más sencilla de administrar propiedades, conectar residentes y organizar comunidades.**
 
 ![Estado](https://img.shields.io/badge/Estado-En%20desarrollo-yellow?style=for-the-badge)
 ![Node.js](https://img.shields.io/badge/Node.js-Backend-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
-![SQL Server](https://img.shields.io/badge/SQL%20Server-Base%20de%20datos-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)
+![SQL Server](https://img.shields.io/badge/SQL%20Server-Base%20de%20datos-CC2927?style=for-the-badge)
 ![HTML5](https://img.shields.io/badge/HTML5-Frontend-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 
 </div>
@@ -244,9 +246,4 @@ Estas funcionalidades no forman parte del alcance inicial y se consideran posibl
 
 *Proyecto académico de desarrollo de software.*
 
-</div>
-<div align="center">
-  <img src="assets/hearhome-banner.png"
-       alt="HearHome - Plataforma de Gestión Residencial"
-       width="100%">
 </div>
