@@ -1,0 +1,193 @@
+{
+    "propiedades": [
+        {
+            "id": "prop-001",
+            "nombre": "Residencial Los Olivos",
+            "tipo": "edificio",
+            "direccion": "Tijuana, Baja California",
+            "pisos": [
+                {
+                    "piso": 1,
+                    "departamentos": 2
+                },
+                {
+                    "piso": 2,
+                    "departamentos": 3
+                }
+            ],
+            "renta": 8500,
+            "servicios": [
+                {
+                    "nombre": "Agua",
+                    "importe": 250
+                },
+                {
+                    "nombre": "Internet",
+                    "importe": 600
+                }
+            ]
+        },
+        {
+            "name": "Playas",
+            "address": "Baja california",
+            "type": "casa",
+            "floors": [
+                {
+                    "number": 1,
+                    "apartments": [
+                        {
+                            "number": "1"
+                        }
+                    ]
+                }
+            ],
+            "totalUnits": 1,
+            "residents": 0,
+            "id": "8b086f24-8365-4345-a7c7-b1fda71bcf88",
+            "rent": 1500,
+            "services": [
+                {
+                    "name": "Luz",
+                    "amount": 500
+                }
+            ],
+            "updatedAt": "2026-11-13T03:08:56.072Z"
+        },
+        {
+            "name": "Rosarito",
+            "address": "San diego",
+            "type": "edificio",
+            "floors": [
+                {
+                    "number": 1,
+                    "apartments": [
+                        {
+                            "number": "101"
+                        }
+                    ]
+                },
+                {
+                    "number": 2,
+                    "apartments": [
+                        {
+                            "number": "201"
+                        },
+                        {
+                            "number": "202"
+                        }
+                    ]
+                },
+                {
+                    "number": 3,
+                    "apartments": [
+                        {
+                            "number": "301"
+                        },
+                        {
+                            "number": "302"
+                        },
+                        {
+                            "number": "303"
+                        },
+                        {
+                            "number": "304"
+                        }
+                    ]
+                }
+            ],
+            "totalUnits": 7,
+            "residents": 0,
+            "id": "5cafb691-4224-4e48-8259-f2ff0aabb983"
+        },
+        {
+            "name": "Ensenada",
+            "address": "Ensenada, Baja california",
+            "type": "edificio",
+            "floors": [
+                {
+                    "number": 1,
+                    "apartments": [
+                        {
+                            "number": "101"
+                        },
+                        {
+                            "number": "102"
+                        }
+                    ]
+                },
+                {
+                    "number": 2,
+                    "apartments": [
+                        {
+                            "number": "201"
+                        },
+                        {
+                            "number": "202"
+                        },
+                        {
+                            "number": "203"
+                        }
+                    ]
+                },
+                {
+                    "number": 3,
+                    "apartments": [
+                        {
+                            "number": "301"
+                        },
+                        {
+                            "number": "302"
+                        },
+                        {
+                            "number": "303"
+                        },
+                        {
+                            "number": "304"
+                        }
+                    ]
+                },
+                {
+                    "number": 4,
+                    "apartments": [
+                        {
+                            "number": "401"
+                        },
+                        {
+                            "number": "402"
+                        },
+                        {
+                            "number": "403"
+                        },
+                        {
+                            "number": "404"
+                        },
+                        {
+                            "number": "405"
+                        }
+                    ]
+                }
+            ],
+            "totalUnits": 14,
+            "residents": 0,
+            "id": "57878405-14db-4c5e-994a-88c1c74c2e3c"
+        },
+        {
+            "name": "Playas",
+            "address": "Playas de Tijuana, Baja caifornia",
+            "type": "casa",
+            "floors": [
+                {
+                    "number": 1,
+                    "apartments": [
+                        {
+                            "number": "1"
+                        }
+                    ]
+                }
+            ],
+            "totalUnits": 1,
+            "residents": 0,
+            "id": "87204b1c-5761-40b9-8166-b5c6f0817d5c"
+        }
+    ]
+}
