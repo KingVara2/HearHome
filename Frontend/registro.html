@@ -1,40 +1,311 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Crear cuenta · HearHome</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Crear cuenta | HearHome</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/registro.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
+
 <body>
-<div class="contenedor">
-  <header class="encabezado">
-    <h1 class="logo">Hear<span>Home</span></h1>
-  </header>
-  <main>
-    <div class="pestanas">
-      <a href="index.html">Entrar</a>
-      <a href="registro.html" class="activa">Crear cuenta</a>
+
+    <div class="registro-layout">
+
+        <!-- PANEL IZQUIERDO -->
+        <aside class="panel-visual">
+
+            <a href="index.html" class="marca">
+                <span class="marca-icono">
+                    <i class="fa-solid fa-house"></i>
+                </span>
+                <span>hearhome<span class="punto">.</span></span>
+            </a>
+
+            <div class="visual-contenido">
+
+                <span class="etiqueta">
+                    TU ESPACIO, NUESTRA PRIORIDAD
+                </span>
+
+                <h1>
+                    Un nuevo hogar
+                    <br>
+                    comienza
+                    <br>
+                    <em>contigo.</em>
+                </h1>
+
+                <p class="visual-descripcion">
+                    Forma parte de una comunidad más conectada,
+                    organizada y fácil de administrar.
+                </p>
+
+                <!-- ILUSTRACIÓN -->
+                <div class="ilustracion">
+
+                    <div class="sol"></div>
+
+                    <div class="techo"></div>
+
+                    <div class="casa">
+                        <div class="ventana"></div>
+                        <div class="puerta"></div>
+                    </div>
+
+                    <div class="suelo"></div>
+
+                </div>
+
+            </div>
+
+            <footer class="visual-footer">
+                <span>HEARHOME © 2026</span>
+                <span>Un hogar más conectado</span>
+            </footer>
+
+        </aside>
+
+
+        <!-- PANEL DERECHO -->
+        <main class="panel-formulario">
+
+            <div class="enlace-superior">
+                <span>¿Ya tienes una cuenta?</span>
+                <a href="index.html">
+                    Iniciar sesión
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <section class="formulario-contenido">
+
+                <span class="subtitulo">
+                    COMIENZA TU EXPERIENCIA
+                </span>
+
+                <h2>
+                    Crea tu
+                    <br>
+                    cuenta<span class="punto">.</span>
+                </h2>
+
+                <p class="descripcion">
+                    Ingresa tus datos y comienza a disfrutar
+                    de una administración residencial más sencilla.
+                </p>
+
+
+                <form id="formRegistro">
+
+                    <!-- NOMBRE -->
+                    <div class="campo">
+                        <label for="nombre">Nombre completo</label>
+
+                        <input
+                            type="text"
+                            id="nombre"
+                            name="nombre"
+                            placeholder="Tu nombre completo"
+                            autocomplete="name"
+                            required>
+                    </div>
+
+
+                    <!-- USUARIO -->
+                    <div class="campo">
+                        <label for="usuario">Correo electrónico</label>
+
+                        <input
+                            type="text"
+                            id="usuario"
+                            name="usuario"
+                            placeholder="Ejemplo: tu@correo.com"
+                            autocomplete="username"
+                            required>
+                    </div>
+
+
+                    <!-- CONTRASEÑA -->
+                    <div class="campo">
+
+                        <label for="contrasena">Contraseña</label>
+
+                        <div class="input-password">
+
+                            <input
+                                type="password"
+                                id="contrasena"
+                                name="contrasena"
+                                placeholder="Crea una contraseña"
+                                autocomplete="new-password"
+                                minlength="8"
+                                required>
+
+                            <button
+                                type="button"
+                                class="ver-password"
+                                id="togglePassword"
+                                aria-label="Mostrar contraseña">
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ROL -->
+                    <div class="campo">
+
+                        <label for="rol">¿Cómo utilizarás HearHome?</label>
+
+                        <div class="select-wrapper">
+
+                            <select id="rol" name="rol" required>
+                                <option value="adm">
+                                    Administrador o propietario
+                                </option>
+
+                                <option value="res">
+                                    Residente
+                                </option>
+                            </select>
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CAMPOS EXCLUSIVOS DE RESIDENTE -->
+                    <div class="solo-residente" id="camposResidente" hidden>
+
+                        <div class="residente-aviso">
+                            <i class="fa-solid fa-circle-info"></i>
+
+                            <p>
+                                Para unirte a tu comunidad necesitas
+                                el código proporcionado por tu administrador.
+                            </p>
+                        </div>
+
+                        <div class="campo">
+                            <label for="codigo">Código del edificio</label>
+
+                            <input
+                                type="text"
+                                id="codigo"
+                                name="codigo"
+                                placeholder="Ingresa el código de tu edificio">
+                        </div>
+
+                        <div class="campo">
+                            <label for="vivienda">Número de vivienda</label>
+
+                            <input
+                                type="text"
+                                id="vivienda"
+                                name="vivienda"
+                                placeholder="Ej. Departamento 204">
+                        </div>
+
+                    </div>
+
+
+                    <!-- BOTÓN -->
+                    <button type="submit" class="boton-registro">
+
+                        <span>Crear mi cuenta</span>
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+                </form>
+
+
+                <!-- PIE INFORMATIVO -->
+                <div class="separador">
+                    <span>UN ESPACIO PARA TODOS</span>
+                </div>
+
+                <div class="mensaje-inferior">
+
+                    <i class="fa-regular fa-heart"></i>
+
+                    <p>
+                        Administradores, propietarios y residentes,
+                        todos bajo un mismo techo.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
     </div>
-    <div class="tarjeta">
-      <h2>Crea tu cuenta</h2>
-      <label class="campo">Nombre completo<input name="nombre" type="text" placeholder="Ingrese su nombre completo..."></label>
-      <label class="campo">Usuario<input name="usuario" type="text" placeholder="Ingrese su nombre de usuario..."></label>
-      <label class="campo">Contraseña<input name="contrasena" type="password" placeholder="Ingrese su contraseña... "></label>
-      <label class="campo">Soy
-        <select name="rol">
-          <option value="adm">Administrador o dueño de un edificio</option>
-          <option value="res">Residente</option>
-        </select>
-      </label>
-      <div class="solo-residente">
-        <label class="campo">Código de tu edificio<input name="codigo" type="text" placeholder="Ingrese el codigo de edificio..."></label>
-        <label class="campo">Tu vivienda<input name="vivienda" type="text" placeholder="Ingrese el numero de vivienda..."></label>
-      </div>
-      <button class="boton ancho" type="button">Crear cuenta</button>
-    </div>
-  </main>
-</div>
+
+
+    <!-- INTERACCIONES -->
+    <script>
+        const rol = document.getElementById("rol");
+        const camposResidente = document.getElementById("camposResidente");
+        const codigo = document.getElementById("codigo");
+        const vivienda = document.getElementById("vivienda");
+
+        function actualizarRol() {
+            const esResidente = rol.value === "res";
+
+            camposResidente.hidden = !esResidente;
+
+            codigo.required = esResidente;
+            vivienda.required = esResidente;
+        }
+
+        rol.addEventListener("change", actualizarRol);
+        actualizarRol();
+
+
+        // MOSTRAR / OCULTAR CONTRASEÑA
+        const password = document.getElementById("contrasena");
+        const togglePassword = document.getElementById("togglePassword");
+
+        togglePassword.addEventListener("click", () => {
+            const visible = password.type === "text";
+
+            password.type = visible ? "password" : "text";
+
+            togglePassword.innerHTML = visible
+                ? '<i class="fa-regular fa-eye"></i>'
+                : '<i class="fa-regular fa-eye-slash"></i>';
+
+            togglePassword.setAttribute(
+                "aria-label",
+                visible ? "Mostrar contraseña" : "Ocultar contraseña"
+            );
+        });
+
+
+        // REGISTRO: PENDIENTE DE CONECTAR CON EL BACKEND
+        document.getElementById("formRegistro")
+            .addEventListener("submit", (event) => {
+                event.preventDefault();
+
+                alert(
+                    "Formulario validado correctamente. " +
+                    "El registro estará disponible al conectar el Backend."
+                );
+            });
+    </script>
+
 </body>
 </html>
