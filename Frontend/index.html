@@ -1,29 +1,151 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Entrar · HearHome</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a HearHome</title>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-<div class="contenedor">
-  <header class="encabezado">
-    <h1 class="logo">Hear<span>Home</span></h1>
-  </header>
-  <main>
-    <div class="pestanas">
-      <a href="index.html" class="activa">Entrar</a>
-      <a href="registro.html">Crear cuenta</a>
-    </div>
-    <div class="tarjeta">
-      <h2>Entra a tu cuenta</h2>
-      <label class="campo">Usuario<input name="usuario" type="text" placeholder="Ingrese su nombre de usuario..."></label>
-      <label class="campo">Contraseña<input name="contrasena" type="password" placeholder="Ingresa tu contraseña..."></label>
-      <button class="boton ancho" type="button">Entrar</button>
-    </div>
-  </main>
-</div>
+
+    <main class="login-layout">
+
+        <section class="welcome-panel">
+            <div class="brand">
+                <span class="brand-symbol">⌂</span>
+                <span>hearhome<span class="brand-dot">.</span></span>
+            </div>
+
+            <div class="welcome-content">
+                <span class="eyebrow">TU ESPACIO, NUESTRA PRIORIDAD</span>
+
+                <h1>
+                    Todo comienza<br>
+                    con sentirte<br>
+                    <em>en casa.</em>
+                </h1>
+
+                <div class="home-illustration">
+                    <div class="sun"></div>
+                    <div class="house">
+                        <div class="roof"></div>
+                        <div class="house-body">
+                            <div class="window"></div>
+                            <div class="door"></div>
+                        </div>
+                    </div>
+                    <div class="ground"></div>
+                </div>
+            </div>
+
+            <div class="welcome-footer">
+                <span>HEARHOME © 2026</span>
+                <span>Un hogar más conectado</span>
+            </div>
+        </section>
+
+        <section class="form-panel">
+
+            <div class="form-top">
+                <span>¿Primera vez aquí?</span>
+                <a href="registro.html">Crear una cuenta ↗</a>
+            </div>
+
+            <div class="form-container">
+
+                <span class="form-eyebrow">QUÉ GUSTO VERTE</span>
+
+                <h2>
+                    Bienvenido<br>
+                    de nuevo<span>.</span>
+                </h2>
+
+                <p class="form-description"></p>
+
+                <!-- FORMULARIO DE LOGIN -->
+                <form id="loginForm">
+
+                    <div class="field">
+                        <label for="email">Correo electrónico</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="tu@correo.com"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+
+                    <div class="field">
+
+                        <div class="field-heading">
+                            <label for="password">Contraseña</label>
+                            <a href="#" class="forgot">¿La olvidaste?</a>
+                        </div>
+
+                        <div class="password-field">
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Ingresa tu contraseña"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                id="togglePassword"
+                                aria-label="Mostrar contraseña">
+                                Ver
+                            </button>
+                        </div>
+                    </div>
+
+                    <button
+                        class="login-button"
+                        type="submit"
+                        id="loginButton">
+                        Entrar a mi espacio <span>↗</span>
+                    </button>
+
+                    <p
+                        id="loginMessage"
+                        class="login-message"
+                        role="status"
+                        aria-live="polite">
+                    </p>
+
+                </form>
+
+                <div class="form-bottom">
+                    <span class="decorative-line"></span>
+                    <span>♥</span>
+                    <span class="decorative-line"></span>
+                </div>
+
+                <div class="community-note">
+                    <span>♡</span>
+                    <p>
+                        Administradores, propietarios y residentes,
+                        todos bajo un mismo techo.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="form-footer"></div>
+
+        </section>
+
+    </main>
+
+    <!-- AUTENTICACIÓN TEMPORAL -->
+    <script src="js/auth.js" defer></script>
+    <script src="js/index.js" defer></script>
+
 </body>
 </html>
