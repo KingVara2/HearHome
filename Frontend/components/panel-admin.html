@@ -1,0 +1,101 @@
+    <!-- ENCABEZADO -->
+    <header class="header">
+
+        <div class="header-left">
+
+            <div class="menu-container">
+                <button class="icon-button menu-button"
+                        id="menuButton"
+                        aria-label="Abrir menú"
+                        aria-expanded="false">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <nav class="dropdown-menu" id="mainMenu">
+
+                    <div class="menu-heading">
+                        <span>PANEL ADMINISTRATIVO</span>
+                    </div>
+
+                    <a href="admin-edificios.html" class="menu-link active">
+                        <i class="fa-solid fa-building"></i>
+                        <span>Mis edificios</span>
+                    </a>
+
+                    <a href="admin-accesos.html" class="menu-link">
+                        <i class="fa-solid fa-user-check"></i>
+                        <span>Solicitudes de acceso</span>
+                    </a>
+
+                    <a href="admin-solicitudes.html" class="menu-link">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                        <span>Mantenimiento</span>
+                    </a>
+
+                    <a href="admin-chat.html" class="menu-link">
+                        <i class="fa-solid fa-comments"></i>
+                        <span>Mensajes</span>
+                    </a>
+
+                    <div class="menu-divider"></div>
+
+                    <a href="index.html" class="menu-link logout-link">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span>Salir</span>
+                    </a>
+
+                </nav>
+            </div>
+
+            <a href="admin-edificios.html" class="brand">
+                <span class="brand-icon">
+                    <i class="fa-solid fa-house-chimney-window"></i>
+                </span>
+
+                <span>Hear<span class="brand-accent">Home</span></span>
+            </a>
+
+        </div>
+
+        <!-- PERFIL -->
+        <div class="profile-container">
+
+            <button class="profile-button"
+                    id="profileButton"
+                    aria-expanded="false">
+
+                <span class="profile-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </span>
+
+                <span class="profile-info">
+                    <strong>Administrador</strong>
+                    <small>Mi cuenta</small>
+                </span>
+
+                <i class="fa-solid fa-chevron-down profile-chevron"></i>
+
+            </button>
+
+            <div class="profile-dropdown" id="profileMenu">
+
+                <div class="profile-dropdown-header">
+                    <strong>Mi perfil</strong>
+                    <span>Cuenta administrativa</span>
+                </div>
+
+                <a href="admin-edificios.html">
+                    <i class="fa-solid fa-building"></i>
+                    Mis edificios
+                </a>
+
+                <a href="index.html" class="logout-link">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Cerrar sesión
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
