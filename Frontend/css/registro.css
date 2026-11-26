@@ -1,0 +1,459 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
+
+:root {
+    --verde: #2e493d;
+    --verde-hover: #3d6250;
+    --crema: #faf7f1;
+    --terracota: #c47c5d;
+    --texto: #25382e;
+    --gris: #879087;
+    --borde: #dedfd7;
+    --blanco: #fff;
+    --radio: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { overflow-x: clip; }
+
+body {
+    min-height: 100vh;
+    background: var(--crema);
+    color: var(--texto);
+    font-family: 'DM Sans', sans-serif;
+}
+
+a { color: inherit; text-decoration: none; }
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+[hidden] { display: none !important; }
+
+/* ESTRUCTURA CENTRADA */
+
+.registro-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 30px 20px 55px;
+}
+
+/* LOGO SUPERIOR */
+
+.panel-visual {
+    width: 100%;
+    max-width: 850px;
+    min-height: auto;
+    padding: 0;
+    background: transparent;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    width: fit-content;
+    margin: 0 auto;
+    color: var(--verde);
+    font-size: 27px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.marca-icono {
+    display: grid;
+    place-items: center;
+    width: 43px;
+    height: 43px;
+    border-radius: 12px;
+    background: var(--verde);
+    color: white;
+    font-size: 18px;
+}
+
+.punto { color: var(--terracota); }
+
+/* OCULTAMOS EL PANEL DECORATIVO DEL LOGIN */
+
+.visual-contenido,
+.visual-footer {
+    display: none;
+}
+
+/* CONTENEDOR DEL REGISTRO */
+
+.panel-formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 850px;
+    padding: 0;
+}
+
+.enlace-superior {
+    order: 2;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 24px;
+    font-size: 13px;
+}
+
+.enlace-superior span { color: var(--gris); }
+
+.enlace-superior a {
+    color: var(--verde);
+    font-weight: 700;
+}
+
+.enlace-superior a:hover { color: var(--terracota); }
+
+.formulario-contenido {
+    width: 100%;
+    margin-top: 35px;
+    padding: clamp(22px, 5vw, 45px);
+    border: 1px solid var(--borde);
+    border-radius: 24px;
+    background: var(--blanco);
+    box-shadow: 0 18px 55px #25382e0d;
+}
+
+/* TÍTULOS */
+
+.subtitulo {
+    display: block;
+    color: var(--terracota);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.formulario-contenido h2 {
+    margin: 12px 0;
+    color: var(--verde);
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(42px, 5vw, 58px);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    text-align: center;
+}
+
+.formulario-contenido h2 br { display: none; }
+
+.descripcion {
+    max-width: 470px;
+    margin: 0 auto 30px;
+    color: var(--gris);
+    font-size: 13px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+/* FORMULARIO EN DOS COLUMNAS */
+
+#formRegistro {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.campo {
+    display: grid;
+    align-content: start;
+    gap: 8px;
+    min-width: 0;
+}
+
+.campo label {
+    color: var(--texto);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+    min-width: 0;
+    height: 48px;
+    padding: 0 15px;
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    outline: none;
+    background: #fcfcfa;
+    color: var(--texto);
+    font-size: 13px;
+    transition: .2s ease;
+}
+
+.campo input::placeholder { color: #a7ada7; }
+
+.campo input:focus,
+.campo select:focus {
+    border-color: var(--verde);
+    box-shadow: 0 0 0 3px #2e493d12;
+}
+
+/* CONTRASEÑA Y SELECT */
+
+.input-password,
+.select-wrapper {
+    position: relative;
+    min-width: 0;
+}
+
+.input-password input { padding-right: 55px; }
+
+.ver-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border: 0;
+    background: transparent;
+    color: var(--verde);
+}
+
+.select-wrapper select {
+    appearance: none;
+    padding-right: 40px;
+    cursor: pointer;
+}
+
+.select-wrapper > i {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--verde);
+    font-size: 11px;
+}
+
+/* CAMPOS DEL RESIDENTE */
+
+.solo-residente {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    padding: 20px;
+    border: 1px solid #d8e4d8;
+    border-radius: 14px;
+    background: #eff3ec;
+}
+
+.residente-aviso {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--verde);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.residente-aviso i { color: var(--terracota); }
+
+/* BOTÓN */
+
+.boton-registro {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 50px;
+    padding: 0 20px;
+    border: 0;
+    border-radius: var(--radio);
+    background: var(--verde);
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    transition: .25s ease;
+}
+
+.boton-registro:hover {
+    background: var(--verde-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px #2e493d22;
+}
+
+.boton-registro:hover i { transform: translateX(4px); }
+
+/* MENSAJE INFERIOR */
+
+.separador {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 25px 0 15px;
+    color: var(--gris);
+    font-size: 10px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.separador::before,
+.separador::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--borde);
+}
+
+.mensaje-inferior {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px;
+    border: 1px solid #dfe8d9;
+    border-radius: var(--radio);
+    background: #eef2e9;
+}
+
+.mensaje-inferior i {
+    color: var(--terracota);
+    font-size: 18px;
+}
+
+.mensaje-inferior p {
+    color: #637568;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 650px) {
+    .registro-layout { padding: 25px 14px 40px; }
+
+    .marca { font-size: 24px; }
+
+    .formulario-contenido {
+        margin-top: 25px;
+        padding: 25px 18px;
+        border-radius: 18px;
+    }
+
+    #formRegistro,
+    .solo-residente {
+        grid-template-columns: 1fr;
+        gap: 17px;
+    }
+
+    .formulario-contenido h2 { font-size: 43px; }
+
+    .solo-residente { padding: 15px; }
+
+    .residente-aviso { grid-column: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        transition: none !important;
+    }
+}
+
+/* REGISTRO MÁS COMPACTO Y CENTRADO */
+
+.registro-layout {
+    padding: 16px 20px 25px;
+}
+
+.marca {
+    font-size: 23px;
+}
+
+.marca-icono {
+    width: 36px;
+    height: 36px;
+}
+
+.formulario-contenido {
+    width: min(760px, 100%);
+    margin-top: 18px;
+    padding: 22px 32px;
+}
+
+.formulario-contenido h2 {
+    margin: 7px 0;
+    font-size: 43px;
+}
+
+.descripcion {
+    margin-bottom: 17px;
+    font-size: 12px;
+}
+
+#formRegistro {
+    gap: 12px 18px;
+}
+
+.campo {
+    gap: 5px;
+}
+
+.campo input,
+.campo select {
+    height: 40px;
+}
+
+.solo-residente {
+    padding: 13px 16px;
+    gap: 12px 18px;
+}
+
+.residente-aviso {
+    font-size: 11px;
+}
+
+.boton-registro {
+    min-height: 43px;
+}
+
+.separador {
+    margin: 15px 0 10px;
+}
+
+.mensaje-inferior {
+    padding: 10px 13px;
+}
+
+.enlace-superior {
+    margin-top: 12px;
+}
+
+/* AJUSTES PARA CELULARES */
+
+@media (max-width: 650px) {
+    .registro-layout {
+        padding: 15px 12px 25px;
+    }
+
+    .formulario-contenido {
+        padding: 20px 16px;
+    }
+
+    .formulario-contenido h2 {
+        font-size: 38px;
+    }
+
+    #formRegistro,
+    .solo-residente {
+        grid-template-columns: 1fr;
+    }
+}
