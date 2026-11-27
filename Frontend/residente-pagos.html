@@ -1,29 +1,522 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pagos · HearHome</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mis pagos | HearHome</title>
+
+    <!-- FUENTES -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- ICONOS -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- ESTILOS -->
+    <link rel="stylesheet" href="css/panel-admin.css">
+    <link rel="stylesheet" href="css/residente-pagos.css">
 </head>
+
 <body>
-<div class="contenedor">
-  <header class="encabezado">
-    <h1 class="logo">Hear<span>Home</span></h1>
-    <div class="usuario"><div><b>Ana Torres</b><br><span class="gris chico">Residente</span></div><a class="boton-borde" href="index.html">Salir</a></div>
-  </header>
-  <main>
-    <article class="tarjeta">
-      <div class="fila"><b>Historial de pagos</b><span class="insignia aviso">1 atraso</span></div>
-      <ul class="lista"><li><span>sep 26</span><span>$8,500</span><span class="insignia aviso">2 días tarde</span></li><li><span>ago 26</span><span>$8,500</span><span class="insignia ok">A tiempo</span></li><li><span>jul 26</span><span>$8,500</span><span class="insignia ok">A tiempo</span></li></ul>
-    </article>
-  </main>
-</div>
-<nav class="barra-nav">
-  <a href="residente-inicio.html">Inicio</a>
-  <a href="residente-chat.html">Chat</a>
-  <a href="residente-pagos.html" class="activa" aria-current="page">Pagos</a>
-</nav>
+
+    <!-- ==========================================
+         ENCABEZADO DEL RESIDENTE
+    =========================================== -->
+
+    <header class="topbar resident-topbar">
+
+        <div class="topbar-left">
+
+            <a href="residente-inicio.html" class="brand">
+
+                <span class="brand-icon">
+                    <i class="fa-solid fa-house"></i>
+                </span>
+
+                <span class="brand-name">
+                    Hear<span>Home</span>
+                </span>
+
+            </a>
+
+        </div>
+
+        <div class="topbar-right">
+
+            <div class="profile-menu">
+
+                <button
+                    type="button"
+                    class="profile-button"
+                    id="residentProfileButton"
+                    aria-expanded="false"
+                    aria-controls="residentProfileDropdown"
+                >
+
+                    <span class="profile-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </span>
+
+                    <span class="profile-info">
+                        <strong>Residente</strong>
+                        <small>Mi cuenta</small>
+                    </span>
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </button>
+
+                <div
+                    class="profile-dropdown"
+                    id="residentProfileDropdown"
+                    hidden
+                >
+
+                    <div class="profile-dropdown-header">
+                        <strong>Mi perfil</strong>
+                        <span>Cuenta de residente</span>
+                    </div>
+
+                    <a href="residente-inicio.html">
+                        <i class="fa-solid fa-house"></i>
+                        Mi hogar
+                    </a>
+
+                    <a href="index.html" class="logout-link">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        Cerrar sesión
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==========================================
+         CONTENIDO PRINCIPAL
+    =========================================== -->
+
+    <main class="payments-main">
+
+        <!-- ENCABEZADO -->
+
+        <section class="payments-welcome">
+
+            <div>
+
+                <span class="section-label">
+                    <i class="fa-solid fa-circle"></i>
+                    PORTAL DEL RESIDENTE
+                </span>
+
+                <h1>
+                    Mis pagos<span class="title-dot">.</span>
+                </h1>
+
+                <p>
+                    Consulta tu renta, servicios y movimientos
+                    desde un solo lugar.
+                </p>
+
+            </div>
+
+            <a href="residente-inicio.html" class="back-home">
+                <i class="fa-solid fa-arrow-left"></i>
+                Volver a mi hogar
+            </a>
+
+        </section>
+
+
+        <!-- ==========================================
+             INFORMACIÓN DE LA PROPIEDAD
+        =========================================== -->
+
+        <section class="payment-property">
+
+            <div class="payment-property-icon">
+                <i class="fa-solid fa-building"></i>
+            </div>
+
+            <div class="payment-property-info">
+
+                <span class="section-label">
+                    MI PROPIEDAD
+                </span>
+
+                <h2 id="paymentPropertyName">
+                    Cargando propiedad...
+                </h2>
+
+                <p>
+                    <i class="fa-solid fa-door-open"></i>
+                    <span id="paymentUnitName">
+                        Departamento pendiente
+                    </span>
+                </p>
+
+            </div>
+
+            <span class="property-active">
+                <i class="fa-solid fa-circle"></i>
+                Activo
+            </span>
+
+        </section>
+
+
+        <!-- ==========================================
+             TARJETAS DE RESUMEN
+        =========================================== -->
+
+        <section class="payment-summary-grid">
+
+            <!-- TOTAL A PAGAR -->
+
+            <article class="payment-summary-card total-card">
+
+                <div class="summary-card-top">
+
+                    <span class="summary-card-icon">
+                        <i class="fa-solid fa-wallet"></i>
+                    </span>
+
+                    <span class="summary-card-label">
+                        TOTAL MENSUAL
+                    </span>
+
+                </div>
+
+                <h2 id="paymentMonthlyTotal">
+                    $--.-- 
+                </h2>
+
+                <p>
+                    Renta mensual más servicios
+                </p>
+
+            </article>
+
+
+            <!-- RENTA BASE -->
+
+            <article class="payment-summary-card">
+
+                <div class="summary-card-top">
+
+                    <span class="summary-card-icon rent">
+                        <i class="fa-solid fa-house-circle-check"></i>
+                    </span>
+
+                    <span class="summary-card-label">
+                        RENTA BASE
+                    </span>
+
+                </div>
+
+                <h2 id="paymentBaseRent">
+                    $--.--
+                </h2>
+
+                <p>
+                    Importe establecido por administración
+                </p>
+
+            </article>
+
+
+            <!-- SERVICIOS -->
+
+            <article class="payment-summary-card">
+
+                <div class="summary-card-top">
+
+                    <span class="summary-card-icon services">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                    </span>
+
+                    <span class="summary-card-label">
+                        SERVICIOS
+                    </span>
+
+                </div>
+
+                <h2 id="paymentServicesTotal">
+                    $--.--
+                </h2>
+
+                <p>
+                    <span id="paymentServicesCount">0</span>
+                    servicios mensuales
+                </p>
+
+            </article>
+
+        </section>
+
+
+        <!-- ==========================================
+             DETALLE DE COBROS Y VENCIMIENTO
+        =========================================== -->
+
+        <section class="payment-details-grid">
+
+            <!-- DESGLOSE -->
+
+            <article class="payment-panel">
+
+                <div class="payment-panel-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            DETALLE DE COBROS
+                        </span>
+
+                        <h2>
+                            Desglose mensual
+                        </h2>
+
+                        <p>
+                            Conoce los conceptos incluidos
+                            en tu pago.
+                        </p>
+
+                    </div>
+
+                    <span class="panel-icon">
+                        <i class="fa-solid fa-receipt"></i>
+                    </span>
+
+                </div>
+
+
+                <div class="payment-breakdown">
+
+                    <div class="breakdown-row">
+
+                        <div class="breakdown-name">
+
+                            <span class="breakdown-icon">
+                                <i class="fa-solid fa-house"></i>
+                            </span>
+
+                            <span>Renta base</span>
+
+                        </div>
+
+                        <strong id="breakdownRent">
+                            $--.--
+                        </strong>
+
+                    </div>
+
+
+                    <!-- SERVICIOS DINÁMICOS -->
+
+                    <div id="paymentServicesList">
+
+                        <p class="loading-services">
+                            Cargando servicios...
+                        </p>
+
+                    </div>
+
+
+                    <!-- TOTAL -->
+
+                    <div class="breakdown-total">
+
+                        <div>
+
+                            <span>Total mensual</span>
+
+                            <small>
+                                Importe total de los conceptos
+                            </small>
+
+                        </div>
+
+                        <strong id="breakdownTotal">
+                            $--.--
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- VENCIMIENTO -->
+
+            <article class="payment-panel due-panel">
+
+                <div class="payment-panel-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            PRÓXIMO PAGO
+                        </span>
+
+                        <h2>
+                            Fecha de vencimiento
+                        </h2>
+
+                    </div>
+
+                    <span class="panel-icon">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </span>
+
+                </div>
+
+
+                <div class="due-date-content">
+
+                    <div class="due-calendar-icon">
+                        <i class="fa-solid fa-calendar-days"></i>
+                    </div>
+
+                    <span class="due-label">
+                        PRÓXIMO VENCIMIENTO
+                    </span>
+
+                    <h3 id="paymentDueDate">
+                        Por configurar
+                    </h3>
+
+                    <p>
+                        Consulta con administración
+                        la fecha límite de pago.
+                    </p>
+
+                </div>
+
+
+                <div class="due-note">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    <p>
+                        Los importes se actualizan cuando
+                        administración guarda cambios en
+                        la renta o los servicios.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- ==========================================
+             HISTORIAL DE PAGOS
+        =========================================== -->
+
+        <section class="payment-panel payment-history">
+
+            <div class="payment-panel-header">
+
+                <div>
+
+                    <span class="section-label">
+                        MIS MOVIMIENTOS
+                    </span>
+
+                    <h2>
+                        Historial de pagos
+                    </h2>
+
+                    <p>
+                        Consulta los pagos registrados
+                        de tu vivienda.
+                    </p>
+
+                </div>
+
+                <span class="panel-icon">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                </span>
+
+            </div>
+
+
+            <div class="history-table-wrapper">
+
+                <table class="history-table">
+
+                    <thead>
+                        <tr>
+                            <th>Periodo</th>
+                            <th>Importe</th>
+                            <th>Estado</th>
+                            <th>Comprobante</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="paymentHistoryBody">
+
+                        <tr>
+                            <td colspan="4" class="history-empty">
+                                No hay pagos registrados todavía.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             MENSAJES DEL SISTEMA
+        =========================================== -->
+
+        <p
+            id="paymentStatusMessage"
+            class="payment-status-message"
+            role="status"
+            aria-live="polite"
+        ></p>
+
+
+        <!-- PIE DE PÁGINA -->
+
+        <footer class="payments-footer">
+
+            <span>© 2026 HearHome</span>
+
+            <span>
+                Tu comunidad, tu espacio, tu hogar.
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+
+    <script src="js/residente-pagos.js" defer></script>
+
 </body>
 </html>
