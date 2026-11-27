@@ -1,33 +1,340 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nuevo edificio · HearHome</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva propiedad | HearHome</title>
+
+    <link rel="stylesheet" href="css/admin-nuevo-edificio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
+
 <body>
-<div class="contenedor">
-  <header class="encabezado">
-    <h1 class="logo">Hear<span>Home</span></h1>
-    <div class="usuario"><div><b>Sol Vargas</b><br><span class="gris chico">Administrador</span></div><a class="boton-borde" href="index.html">Salir</a></div>
-  </header>
-  <main>
-    <div class="tarjeta">
-      <h2>Nuevo edificio</h2>
-      <label class="campo">Nombre del edificio<input name="nombre" type="text" placeholder="Torre Mar"></label>
-      <label class="campo">Viviendas (separadas por coma)<textarea name="viviendas" rows="2" placeholder="1A, 1B, 2A, 2B"></textarea></label>
-      <button class="boton ancho" type="button">Crear edificio</button>
-      <a class="boton-borde ancho" href="admin-edificios.html">Cancelar</a>
+
+<main class="property-builder">
+
+    <!-- ENCABEZADO -->
+    <header class="builder-header">
+        <div class="builder-heading">
+            <span class="builder-icon">
+                <i class="fa-solid fa-house-circle-check"></i>
+            </span>
+
+            <div>
+                <span class="eyebrow">HEARHOME · NUEVA PROPIEDAD</span>
+                <h1>Construye tu espacio</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- PROGRESO -->
+    <div class="builder-progress" id="builderProgress">
+        <span class="progress-dot active" data-step="1"></span>
+        <span class="progress-line"></span>
+        <span class="progress-dot" data-step="2"></span>
     </div>
-  </main>
-</div>
-<nav class="barra-nav">
-  <a href="admin-edificios.html" class="activa" aria-current="page">Edificios</a>
-  <a href="admin-accesos.html">Accesos <span class="insignia mal">1</span></a>
-  <a href="admin-solicitudes.html">Solicitudes</a>
-  <a href="admin-chat.html">Chat</a>
-</nav>
+
+    <form id="newBuildingForm">
+
+        <!-- =====================================
+             PANTALLA 1
+        ====================================== -->
+        <div class="builder-screen active" id="builderStep1">
+
+            <!-- TIPO DE PROPIEDAD -->
+            <section class="builder-section">
+
+                <div class="section-heading">
+                    <span class="step-number">01</span>
+                    <div>
+                        <h2>¿Qué tipo de propiedad es?</h2>
+                        <p>Selecciona el tipo de espacio que administrarás.</p>
+                    </div>
+                </div>
+
+                <div class="property-types">
+
+                    <label class="type-card">
+                        <input
+                            type="radio"
+                            name="propertyType"
+                            value="edificio"
+                            checked
+                        >
+
+                        <span class="type-content">
+                            <i class="fa-solid fa-building"></i>
+                            <strong>Edificio</strong>
+                            <small>Varios pisos y departamentos</small>
+                        </span>
+                    </label>
+
+                    <label class="type-card">
+                        <input
+                            type="radio"
+                            name="propertyType"
+                            value="casa"
+                        >
+
+                        <span class="type-content">
+                            <i class="fa-solid fa-house"></i>
+                            <strong>Casa</strong>
+                            <small>Una vivienda individual</small>
+                        </span>
+                    </label>
+
+                </div>
+            </section>
+
+            <!-- INFORMACIÓN GENERAL -->
+            <section class="builder-section">
+
+                <div class="section-heading">
+                    <span class="step-number">02</span>
+                    <div>
+                        <h2>Información general</h2>
+                        <p>Identifica tu propiedad.</p>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+
+                    <label class="form-field">
+                        <span>Nombre de la propiedad</span>
+                        <input
+                            type="text"
+                            id="propertyName"
+                            name="propertyName"
+                            placeholder="Ej. Residencial Los Olivos"
+                            maxlength="100"
+                            required
+                        >
+                    </label>
+
+                    <label class="form-field">
+                        <span>Ubicación</span>
+                        <input
+                            type="text"
+                            id="propertyAddress"
+                            name="propertyAddress"
+                            placeholder="Ej. Tijuana, Baja California"
+                            maxlength="200"
+                            required
+                        >
+                    </label>
+
+                </div>
+            </section>
+
+            <!-- BOTONES PANTALLA 1 -->
+            <footer class="builder-actions">
+
+                <button
+                    type="button"
+                    class="btn-cancel"
+                    id="cancelNewBuilding"
+                >
+                    Cancelar
+                </button>
+
+                <button
+                    type="button"
+                    class="btn-create"
+                    id="nextBuilderStep"
+                >
+                    <span id="nextStepText">Continuar</span>
+                    <i
+                        class="fa-solid fa-arrow-right"
+                        id="nextStepIcon"
+                    ></i>
+                </button>
+
+            </footer>
+
+        </div>
+
+        <!-- =====================================
+             PANTALLA 2
+        ====================================== -->
+        <div class="builder-screen" id="builderStep2" hidden>
+
+            <!-- CONFIGURACIÓN DEL EDIFICIO -->
+            <section class="builder-section" id="buildingConfiguration">
+
+                <div class="section-heading">
+                    <span class="step-number">03</span>
+                    <div>
+                        <h2>Diseña tu edificio</h2>
+                        <p>Configura sus pisos y departamentos.</p>
+                    </div>
+                </div>
+
+                <!-- ÚNICAMENTE NÚMERO DE PISOS -->
+                <div class="configuration-grid">
+
+                    <div class="counter-card">
+
+                        <label for="floorCount">
+                            Número de pisos
+                        </label>
+
+                        <div class="counter">
+
+                            <button
+                                type="button"
+                                id="decreaseFloors"
+                                aria-label="Quitar piso"
+                            >
+                                <i class="fa-solid fa-minus"></i>
+                            </button>
+
+                            <input
+                                type="number"
+                                id="floorCount"
+                                min="1"
+                                max="30"
+                                value="3"
+                            >
+
+                            <button
+                                type="button"
+                                id="increaseFloors"
+                                aria-label="Agregar piso"
+                            >
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- EDITOR Y VISTA PREVIA -->
+            <div class="builder-workspace">
+
+                <!-- PERSONALIZACIÓN DE PISOS -->
+                <section class="floor-settings">
+
+                    <div class="floor-settings-header">
+
+                        <div>
+                            <h3>Personaliza los pisos</h3>
+                            <p>Ajusta los departamentos de cada nivel.</p>
+                        </div>
+
+                        <span class="floor-settings-icon">
+                            <i class="fa-solid fa-sliders"></i>
+                        </span>
+
+                    </div>
+
+                    <div id="floorEditor" class="floor-editor">
+                        <!-- Generado por JavaScript -->
+                    </div>
+
+                </section>
+
+                <!-- VISTA PREVIA -->
+                <section class="builder-section preview-section">
+
+                    <div class="section-heading">
+                        <span class="step-number">04</span>
+                        <div>
+                            <h2>Vista previa</h2>
+                            <p>Así se organizará tu edificio.</p>
+                        </div>
+                    </div>
+
+                    <div class="preview-container">
+
+                        <div class="preview-top">
+                            <span>
+                                <i class="fa-solid fa-eye"></i>
+                                TU EDIFICIO
+                            </span>
+
+                            <span class="units-badge" id="totalUnits">
+                                12 unidades
+                            </span>
+                        </div>
+
+                        <div class="preview-scene" id="propertyPreview">
+
+                            <div
+                                class="building-preview"
+                                id="buildingPreview"
+                                aria-label="Vista previa del edificio"
+                            >
+                                <!-- Generado por JavaScript -->
+                            </div>
+
+                            <div class="house-preview" id="housePreview" hidden>
+                                <div class="house-roof"></div>
+
+                                <div class="house-body">
+                                    <div class="house-window"></div>
+                                    <div class="house-door"></div>
+                                </div>
+
+                                <span>Mi hogar</span>
+                            </div>
+
+                            <div class="preview-ground"></div>
+
+                        </div>
+
+                        <div class="preview-footer">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <span id="previewDescription">
+                                Cada departamento se registrará como una unidad independiente.
+                            </span>
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+            <!-- BOTONES PANTALLA 2 -->
+            <footer class="builder-actions">
+
+                <button
+                    type="button"
+                    class="btn-cancel"
+                    id="previousBuilderStep"
+                >
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Regresar
+                </button>
+
+                <button
+                    type="submit"
+                    class="btn-create"
+                    id="saveNewBuilding"
+                >
+                    <i class="fa-solid fa-check"></i>
+                    Crear edificio
+                </button>
+
+            </footer>
+
+        </div>
+
+        <p
+            class="form-message"
+            id="newBuildingMessage"
+            role="status"
+            aria-live="polite"
+        ></p>
+
+    </form>
+
+</main>
+
+<script src="js/admin-nuevo-edificio.js" defer></script>
+
 </body>
 </html>
