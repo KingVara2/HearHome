@@ -1,44 +1,212 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Edificios · HearHome</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis edificios | HearHome</title>
+
+    <link rel="stylesheet" href="css/panel-admin.css">
+    <link rel="stylesheet" href="css/admin-edificios.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-<div class="contenedor">
-  <header class="encabezado">
-    <h1 class="logo">Hear<span>Home</span></h1>
-    <div class="usuario"><div><b>Sol Vargas</b><br><span class="gris chico">Administrador</span></div><a class="boton-borde" href="index.html">Salir</a></div>
-  </header>
-  <main>
-    <a class="boton ancho" style="margin:0" href="admin-nuevo-edificio.html">Agregar edificio</a>
-    <article class="tarjeta">
-      <div class="fila"><div><b>Torre Mar</b><p class="gris chico">2 de 3 viviendas ocupadas</p></div><button class="boton-borde" type="button">Copiar código</button></div>
-      <p class="codigo">TOR-4821</p>
-      <div class="separado">
-        <div class="fila"><div><b>Vivienda 3B</b><p class="gris chico">Ana Torres · $8,500</p></div><span class="insignia aviso">Por vencer</span></div>
-        <p class="gris chico">Vence en 3 días · 1 atraso</p>
-        <div class="acciones"><button class="boton-borde" type="button">Recordar</button><button class="boton-borde" type="button">Registrar pago</button></div>
-      </div>
-      <div class="separado">
-        <div class="fila"><div><b>Vivienda 1A</b><p class="gris chico">Luis Ramírez · $12,000</p></div><span class="insignia mal">Vencido</span></div>
-        <p class="gris chico">Venció hace 4 días · 3 atrasos</p>
-        <div class="acciones"><button class="boton-borde" type="button">Recordar</button><button class="boton-borde" type="button">Registrar pago</button></div>
-      </div>
-      <div class="separado">
-        <div class="fila"><div><b>Vivienda 2A</b><p class="gris chico">Disponible</p></div></div>
-      </div>
-    </article>
-  </main>
-</div>
-<nav class="barra-nav">
-  <a href="admin-edificios.html" class="activa" aria-current="page">Edificios</a>
-  <a href="admin-accesos.html">Accesos <span class="insignia mal">1</span></a>
-  <a href="admin-solicitudes.html">Solicitudes</a>
-  <a href="admin-chat.html">Chat</a>
-</nav>
+
+    <!-- COMPONENTE REUTILIZABLE -->
+    <div id="panel-admin"></div>
+
+    <main class="main-content">
+        <section class="buildings-panel">
+
+            <!-- ENCABEZADO Y ACCIONES -->
+            <div class="panel-header">
+                <div class="panel-heading">
+                    <div class="panel-icon">
+                        <i class="fa-solid fa-city"></i>
+                    </div>
+
+                    <div>
+                        <h1>Mis edificios</h1>
+                        <h2>Propiedades registradas</h2>
+                        <p>Selecciona un edificio para consultar sus detalles.</p>
+                    </div>
+                </div>
+
+                <div class="panel-actions">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input
+                            type="search"
+                            id="searchBuilding"
+                            placeholder="Buscar edificio..."
+                            aria-label="Buscar edificio"
+                        >
+                    </div>
+
+                    <button type="button"
+                            class="new-building-button"
+                            id="openNewBuilding">
+                        <i class="fa-solid fa-plus"></i>
+                        Nuevo edificio
+                    </button>
+                </div>
+            </div>
+
+            <!-- EDIFICIOS -->
+            <div class="buildings-grid" id="buildingsGrid">
+
+                <!-- TARJETA VACÍA 1 -->
+                <article class="building-card building-placeholder">
+                    <div class="card-visual">
+                        <div class="placeholder-icon"></div>
+                    </div>
+                    <div class="card-content">
+                        <div class="placeholder-line short"></div>
+                        <div class="placeholder-line title"></div>
+                        <div class="placeholder-line medium"></div>
+                        <div class="card-divider"></div>
+                        <div class="placeholder-stats">
+                            <div class="placeholder-stat"></div>
+                            <div class="placeholder-stat"></div>
+                        </div>
+                        <div class="placeholder-button"></div>
+                    </div>
+                </article>
+
+                <!-- TARJETA VACÍA 2 -->
+                <article class="building-card building-placeholder">
+                    <div class="card-visual">
+                        <div class="placeholder-icon"></div>
+                    </div>
+                    <div class="card-content">
+                        <div class="placeholder-line short"></div>
+                        <div class="placeholder-line title"></div>
+                        <div class="placeholder-line medium"></div>
+                        <div class="card-divider"></div>
+                        <div class="placeholder-stats">
+                            <div class="placeholder-stat"></div>
+                            <div class="placeholder-stat"></div>
+                        </div>
+                        <div class="placeholder-button"></div>
+                    </div>
+                </article>
+
+                <!-- TARJETA VACÍA 3 -->
+                <article class="building-card building-placeholder">
+                    <div class="card-visual">
+                        <div class="placeholder-icon"></div>
+                    </div>
+                    <div class="card-content">
+                        <div class="placeholder-line short"></div>
+                        <div class="placeholder-line title"></div>
+                        <div class="placeholder-line medium"></div>
+                        <div class="card-divider"></div>
+                        <div class="placeholder-stats">
+                            <div class="placeholder-stat"></div>
+                            <div class="placeholder-stat"></div>
+                        </div>
+                        <div class="placeholder-button"></div>
+                    </div>
+                </article>
+
+                <!-- TARJETA VACÍA 4 -->
+                <article class="building-card building-placeholder">
+                    <div class="card-visual">
+                        <div class="placeholder-icon"></div>
+                    </div>
+                    <div class="card-content">
+                        <div class="placeholder-line short"></div>
+                        <div class="placeholder-line title"></div>
+                        <div class="placeholder-line medium"></div>
+                        <div class="card-divider"></div>
+                        <div class="placeholder-stats">
+                            <div class="placeholder-stat"></div>
+                            <div class="placeholder-stat"></div>
+                        </div>
+                        <div class="placeholder-button"></div>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- SIN RESULTADOS -->
+            <div class="empty-state" id="emptyState" hidden>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <h3>No encontramos ese edificio</h3>
+                <p>Prueba buscando con otro nombre.</p>
+            </div>
+
+        </section>
+
+        <footer class="footer">
+            <span>© 2026 HearHome</span>
+            <span>Tu comunidad, tu espacio, tu hogar.</span>
+        </footer>
+    </main>
+
+    <!-- MODAL DE RESUMEN -->
+    <div class="modal-overlay" id="buildingModal" hidden>
+        <div class="modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modalTitle">
+
+            <button type="button"
+                    class="modal-close"
+                    id="closeModal"
+                    aria-label="Cerrar ventana">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="modal-icon">
+                <i class="fa-solid fa-building"></i>
+            </div>
+
+            <span class="modal-label">RESUMEN DE PROPIEDAD</span>
+            <h2 id="modalTitle">Nombre del edificio</h2>
+            <p id="modalAddress"></p>
+
+            <div class="modal-stats">
+                <div>
+                    <strong id="modalUnits">0</strong>
+                    <span>Unidades</span>
+                </div>
+                <div>
+                    <strong id="modalResidents">0</strong>
+                    <span>Residentes</span>
+                </div>
+            </div>
+
+            <button type="button"
+                    class="modal-action"
+                    id="modalAccept">
+                Entendido
+            </button>
+        </div>
+    </div>
+
+    <!-- MODAL PARA CREAR PROPIEDADES -->
+    <div class="new-building-overlay" id="newBuildingModal" hidden>
+        <div class="new-building-window">
+
+            <button type="button"
+                    class="new-building-close"
+                    id="closeNewBuilding"
+                    aria-label="Cerrar">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <iframe
+                src="admin-nuevo-edificio.html"
+                title="Crear nueva propiedad"
+                class="new-building-frame">
+            </iframe>
+
+        </div>
+    </div>
+
+    <script src="js/panel-admin.js" defer></script>
+    <script src="js/admin-edificios.js" defer></script>
+
 </body>
 </html>
