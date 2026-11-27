@@ -1,46 +1,461 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Inicio · HearHome</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mi hogar | HearHome</title>
+
+    <!-- ESTILOS -->
+    <link rel="stylesheet" href="css/panel-admin.css">
+    <link rel="stylesheet" href="css/residente-inicio.css">
+
+    <!-- ICONOS -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
 </head>
+
 <body>
-<div class="contenedor">
-  <header class="encabezado">
-    <h1 class="logo">Hear<span>Home</span></h1>
-    <div class="usuario"><div><b>Ana Torres</b><br><span class="gris chico">Residente</span></div><a class="boton-borde" href="index.html">Salir</a></div>
-  </header>
-  <main>
-    <section class="tarjeta">
-      <p class="gris chico">Hola, Ana · Torre Mar, vivienda 3B</p>
-      <div class="fila">
-        <div><p class="gris chico">Renta mensual</p><p class="precio">$8,500</p></div>
-        <span class="insignia aviso">Por vencer</span>
-      </div>
-      <p>Vence en 3 días · 9 de octubre</p>
-      <button class="boton ancho" type="button">Avisar que ya pagué</button>
-    </section>
-    <div class="tarjeta">
-      <h2>¿Qué necesitas?</h2>
-      <div class="opciones"><input type="radio" name="categoria" id="c0" checked><label for="c0">Plomería</label><input type="radio" name="categoria" id="c1" ><label for="c1">Electricidad</label><input type="radio" name="categoria" id="c2" ><label for="c2">Mantenimiento</label><input type="radio" name="categoria" id="c3" ><label for="c3">Ruido</label><input type="radio" name="categoria" id="c4" ><label for="c4">Otro</label></div>
-      <label class="campo">Describe el problema<textarea name="texto" rows="3" placeholder="Cuéntanos qué está pasando"></textarea></label>
-      <button class="boton ancho" type="button">Enviar solicitud</button>
+
+    <!-- =====================================
+         PANEL SUPERIOR DEL RESIDENTE
+    ====================================== -->
+
+    <header class="topbar resident-topbar">
+
+        <div class="topbar-left">
+            <a href="residente-inicio.html" class="brand">
+
+                <span class="brand-icon">
+                    <i class="fa-solid fa-house"></i>
+                </span>
+
+                <span class="brand-name">
+                    Hear<span>Home</span>
+                </span>
+
+            </a>
+        </div>
+
+        <div class="topbar-right">
+
+            <div class="profile-menu">
+
+                <button
+                    type="button"
+                    class="profile-button"
+                    id="residentProfileButton"
+                    aria-expanded="false"
+                    aria-controls="residentProfileDropdown"
+                >
+
+                    <span class="profile-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </span>
+
+                    <span class="profile-info">
+                        <strong>Residente</strong>
+                        <small>Mi cuenta</small>
+                    </span>
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </button>
+
+                <div
+                    class="profile-dropdown"
+                    id="residentProfileDropdown"
+                    hidden
+                >
+
+                    <div class="profile-dropdown-header">
+                        <strong>Mi perfil</strong>
+                        <span>Cuenta de residente</span>
+                    </div>
+
+                    <a href="residente-inicio.html">
+                        <i class="fa-solid fa-house"></i>
+                        Mi hogar
+                    </a>
+
+                    <a href="index.html" class="logout-link">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        Cerrar sesión
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+
+    </header>
+
+
+    <!-- =====================================
+         CONTENIDO PRINCIPAL
+    ====================================== -->
+
+    <main class="main-content">
+
+        <!-- BIENVENIDA -->
+
+        <section class="welcome-section">
+
+            <div>
+
+                <span class="eyebrow">
+                    <i class="fa-solid fa-circle"></i>
+                    PORTAL DEL RESIDENTE
+                </span>
+
+                <h1>
+                    Bienvenido a tu hogar<span class="title-dot">.</span>
+                </h1>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             PANEL PRINCIPAL
+        ====================================== -->
+
+        <section class="dashboard-panel">
+
+            <!-- MI HOGAR -->
+
+            <div class="home-card">
+
+                <div class="home-card-header">
+
+                    <div class="home-icon">
+                        <i class="fa-solid fa-house-chimney"></i>
+                    </div>
+
+                    <div class="home-heading">
+                        <span class="section-label">MI ESPACIO</span>
+                        <h2>My Home</h2>
+                    </div>
+
+                    <span class="home-status">
+                        <i class="fa-solid fa-circle"></i>
+                        Activo
+                    </span>
+
+                </div>
+
+
+                <!-- INFORMACIÓN DE LA VIVIENDA -->
+
+                <div class="property-info">
+
+                    <div class="property-detail">
+
+                        <i class="fa-solid fa-building"></i>
+
+                        <div>
+                            <small>Edificio</small>
+
+                            <strong id="residentPropertyName">
+                                Cargando propiedad...
+                            </strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="property-detail">
+
+                        <i class="fa-solid fa-door-open"></i>
+
+                        <div>
+                            <small>Unidad</small>
+
+                            <strong id="residentUnitName">
+                                Departamento 204
+                            </strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="property-detail">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        <div>
+                            <small>Ubicación</small>
+
+                            <strong id="residentPropertyAddress">
+                                Cargando ubicación...
+                            </strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =====================================
+                     RESUMEN DEL RESIDENTE
+                ====================================== -->
+
+                <div class="summary-grid">
+
+                    <!-- PAGO MENSUAL -->
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon rent-icon">
+                            <i class="fa-solid fa-house-circle-check"></i>
+                        </div>
+
+                        <div>
+
+                            <span>Pago mensual</span>
+
+                            <strong id="residentMonthlyRent">
+                                Cargando...
+                            </strong>
+
+                            <small>
+                                Renta más servicios
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PRÓXIMO VENCIMIENTO -->
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon payment-icon">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+
+                        <div>
+
+                            <span>Próximo vencimiento</span>
+
+                            <strong id="residentNextDueDate">
+                                Por configurar
+                            </strong>
+
+                            <small>
+                                Fecha límite de pago
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- MANTENIMIENTO -->
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon maintenance-icon">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </div>
+
+                        <div>
+
+                            <span>Mantenimiento</span>
+
+                            <strong>1 solicitud</strong>
+
+                            <small>
+                                En seguimiento
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 ACCESOS RÁPIDOS
+            ====================================== -->
+
+            <section class="quick-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="section-label">
+                            ACCESOS RÁPIDOS
+                        </span>
+
+                        <h2>¿Qué necesitas hacer?</h2>
+                    </div>
+
+                </div>
+
+
+                <div class="quick-grid">
+
+                    <a href="residente-pagos.html" class="quick-card">
+
+                        <span class="quick-icon">
+                            <i class="fa-solid fa-credit-card"></i>
+                        </span>
+
+                        <div>
+                            <h3>Mis pagos</h3>
+                            <p>Historial y comprobantes</p>
+                        </div>
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </a>
+
+
+                    <a href="residente-chat.html" class="quick-card">
+
+                        <span class="quick-icon">
+                            <i class="fa-solid fa-comments"></i>
+                        </span>
+
+                        <div>
+                            <h3>Mensajes</h3>
+                            <p>Contactar a administración</p>
+                        </div>
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================
+                 AVISOS IMPORTANTES
+            ====================================== -->
+
+            <section class="announcements-section" id="avisos">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="section-label">
+                            MI COMUNIDAD
+                        </span>
+
+                        <h2>Avisos importantes</h2>
+                    </div>
+
+                </div>
+
+
+                <article class="announcement-card">
+
+                    <span class="announcement-icon">
+                        <i class="fa-solid fa-bullhorn"></i>
+                    </span>
+
+                    <div>
+
+                        <span class="announcement-category">
+                            AVISO DE ADMINISTRACIÓN
+                        </span>
+
+                        <h3>Mantenimiento de áreas comunes</h3>
+
+                        <p>
+                            Se realizará una revisión preventiva de las
+                            instalaciones generales del edificio.
+                            Consulta con administración para más información.
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+        </section>
+
+
+        <!-- PIE DE PÁGINA -->
+
+        <footer class="footer">
+
+            <span>© 2026 HearHome</span>
+
+            <span>
+                Tu comunidad, tu espacio, tu hogar.
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <!-- =====================================
+         MODAL INFORMATIVO
+    ====================================== -->
+
+    <div class="modal-overlay" id="serviceModal" hidden>
+
+        <div
+            class="modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modalTitle"
+        >
+
+            <button
+                class="modal-close"
+                id="closeModal"
+                type="button"
+                aria-label="Cerrar ventana"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="modal-icon">
+                <i class="fa-solid fa-house"></i>
+            </div>
+
+            <span class="section-label">HEARHOME</span>
+
+            <h2 id="modalTitle">Servicio</h2>
+
+            <p>
+                Este apartado está preparado para integrarse
+                con el sistema de administración de HearHome.
+                Su información estará disponible cuando se
+                implemente el módulo correspondiente.
+            </p>
+
+            <button
+                class="modal-action"
+                id="modalAccept"
+                type="button"
+            >
+                Entendido
+            </button>
+
+        </div>
+
     </div>
-    <h2>Mis solicitudes</h2>
-    <article class="tarjeta">
-      <div class="fila"><b>Plomería</b><span class="insignia aviso">En proceso</span></div>
-      <p>La llave del lavabo del baño gotea.</p>
-      <p class="gris chico">5 de octubre</p>
-    </article>
-  </main>
-</div>
-<nav class="barra-nav">
-  <a href="residente-inicio.html" class="activa" aria-current="page">Inicio</a>
-  <a href="residente-chat.html">Chat</a>
-  <a href="residente-pagos.html">Pagos</a>
-</nav>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/residente-inicio.js" defer></script>
+
 </body>
 </html>
