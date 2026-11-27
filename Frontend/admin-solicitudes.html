@@ -1,43 +1,587 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Solicitudes · HearHome</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Solicitudes | HearHome</title>
+
+    <!-- FUENTES -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- ICONOS -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- ESTILOS -->
+    <link rel="stylesheet" href="css/panel-admin.css">
+    <link rel="stylesheet" href="css/admin-solicitudes.css">
 </head>
+
 <body>
-<div class="contenedor">
-  <header class="encabezado">
-    <h1 class="logo">Hear<span>Home</span></h1>
-    <div class="usuario"><div><b>Sol Vargas</b><br><span class="gris chico">Administrador</span></div><a class="boton-borde" href="index.html">Salir</a></div>
-  </header>
-  <main>
-    <article class="tarjeta">
-      <div class="fila"><b>Electricidad · 1A, Torre Mar</b><span class="insignia mal">Abierta</span></div>
-      <p>Se va la luz en la cocina cada vez que uso el horno.</p>
-      <p class="gris chico">Luis Ramírez · 4 de octubre</p>
-      <div class="acciones"><button class="boton-borde" type="button">Marcar como en proceso</button><a class="boton-borde" href="admin-chat.html">Chatear</a></div>
-    </article>
-    <article class="tarjeta">
-      <div class="fila"><b>Plomería · 3B, Torre Mar</b><span class="insignia aviso">En proceso</span></div>
-      <p>La llave del lavabo del baño gotea.</p>
-      <p class="gris chico">Ana Torres · 5 de octubre</p>
-      <div class="acciones"><button class="boton-borde" type="button">Marcar como resuelta</button><a class="boton-borde" href="admin-chat.html">Chatear</a></div>
-    </article>
-    <article class="tarjeta">
-      <div class="fila"><b>Ruido · 2A, Torre Mar</b><span class="insignia ok">Resuelta</span></div>
-      <p>Música alta después de las 11 pm.</p>
-      <p class="gris chico">Marta Núñez · 28 de septiembre</p>
-    </article>
-  </main>
-</div>
-<nav class="barra-nav">
-  <a href="admin-edificios.html">Edificios</a>
-  <a href="admin-accesos.html">Accesos <span class="insignia mal">1</span></a>
-  <a href="admin-solicitudes.html" class="activa" aria-current="page">Solicitudes</a>
-  <a href="admin-chat.html">Chat</a>
-</nav>
+
+    <!-- ==========================================
+         ENCABEZADO
+    =========================================== -->
+
+    <header class="topbar requests-topbar">
+
+        <div class="topbar-left">
+
+            <a href="admin-edificios.html" class="brand">
+
+                <span class="brand-icon">
+                    <i class="fa-solid fa-house"></i>
+                </span>
+
+                <span class="brand-name">
+                    Hear<span>Home</span>
+                </span>
+
+            </a>
+
+        </div>
+
+        <div class="topbar-right">
+
+            <span class="admin-role">
+                <i class="fa-solid fa-shield-halved"></i>
+                Administración
+            </span>
+
+            <div class="admin-avatar">
+                <i class="fa-solid fa-user-tie"></i>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==========================================
+         CONTENIDO PRINCIPAL
+    =========================================== -->
+
+    <main class="requests-main">
+
+        <!-- TÍTULO -->
+
+        <section class="requests-welcome">
+
+            <div>
+
+                <span class="section-label">
+                    <i class="fa-solid fa-circle"></i>
+                    PANEL DE ADMINISTRACIÓN
+                </span>
+
+                <h1>
+                    Solicitudes<span class="title-dot">.</span>
+                </h1>
+
+                <p>
+                    Administra los reportes de mantenimiento
+                    y las solicitudes de tus residentes.
+                </p>
+
+            </div>
+
+            <a href="admin-edificios.html" class="back-dashboard">
+                <i class="fa-solid fa-arrow-left"></i>
+                Volver a edificios
+            </a>
+
+        </section>
+
+
+        <!-- ==========================================
+             INDICADORES
+        =========================================== -->
+
+        <section class="requests-stats">
+
+            <!-- TOTAL -->
+
+            <article class="stat-card">
+
+                <div class="stat-icon total-icon">
+                    <i class="fa-solid fa-clipboard-list"></i>
+                </div>
+
+                <div class="stat-info">
+
+                    <span>TOTAL DE SOLICITUDES</span>
+
+                    <strong>3</strong>
+
+                    <small>
+                        Reportes registrados
+                    </small>
+
+                </div>
+
+            </article>
+
+
+            <!-- ABIERTAS -->
+
+            <article class="stat-card">
+
+                <div class="stat-icon open-icon">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                </div>
+
+                <div class="stat-info">
+
+                    <span>ABIERTAS</span>
+
+                    <strong>1</strong>
+
+                    <small>
+                        Pendientes de atención
+                    </small>
+
+                </div>
+
+            </article>
+
+
+            <!-- EN PROCESO -->
+
+            <article class="stat-card">
+
+                <div class="stat-icon progress-icon">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                </div>
+
+                <div class="stat-info">
+
+                    <span>EN PROCESO</span>
+
+                    <strong>1</strong>
+
+                    <small>
+                        Actualmente en atención
+                    </small>
+
+                </div>
+
+            </article>
+
+
+            <!-- RESUELTAS -->
+
+            <article class="stat-card">
+
+                <div class="stat-icon resolved-icon">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+
+                <div class="stat-info">
+
+                    <span>RESUELTAS</span>
+
+                    <strong>1</strong>
+
+                    <small>
+                        Solicitudes finalizadas
+                    </small>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- ==========================================
+             PANEL DE SOLICITUDES
+        =========================================== -->
+
+        <section class="requests-panel">
+
+            <div class="requests-panel-header">
+
+                <div>
+
+                    <span class="section-label">
+                        GESTIÓN DE MANTENIMIENTO
+                    </span>
+
+                    <h2>
+                        Solicitudes recibidas
+                    </h2>
+
+                    <p>
+                        Consulta los reportes de tu comunidad
+                        y da seguimiento a cada caso.
+                    </p>
+
+                </div>
+
+                <span class="requests-count">
+                    <i class="fa-solid fa-layer-group"></i>
+                    3 solicitudes
+                </span>
+
+            </div>
+
+
+            <!-- FILTROS VISUALES -->
+
+            <div class="requests-toolbar">
+
+                <div class="request-filters">
+
+                    <span class="filter-chip active">
+                        Todas
+                        <small>3</small>
+                    </span>
+
+                    <span class="filter-chip">
+                        Abiertas
+                        <small>1</small>
+                    </span>
+
+                    <span class="filter-chip">
+                        En proceso
+                        <small>1</small>
+                    </span>
+
+                    <span class="filter-chip">
+                        Resueltas
+                        <small>1</small>
+                    </span>
+
+                </div>
+
+                <div class="requests-search">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <span>
+                        Buscar solicitudes
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==========================================
+                 LISTADO DE SOLICITUDES
+            =========================================== -->
+
+            <div class="requests-list">
+
+
+                <!-- SOLICITUD 1 -->
+
+                <article class="request-card">
+
+                    <div class="request-card-top">
+
+                        <div class="request-category-icon electrical">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+
+                        <div class="request-heading">
+
+                            <span class="request-category">
+                                ELECTRICIDAD
+                            </span>
+
+                            <h3>
+                                Falla eléctrica en cocina
+                            </h3>
+
+                        </div>
+
+                        <span class="request-status status-open">
+                            <i class="fa-solid fa-circle"></i>
+                            Abierta
+                        </span>
+
+                    </div>
+
+
+                    <p class="request-description">
+                        Se va la luz en la cocina cada vez
+                        que uso el horno.
+                    </p>
+
+
+                    <div class="request-meta">
+
+                        <span>
+                            <i class="fa-solid fa-user"></i>
+                            Luis Ramírez
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-building"></i>
+                            Torre Mar · 1A
+                        </span>
+
+                        <span>
+                            <i class="fa-regular fa-calendar"></i>
+                            4 de octubre
+                        </span>
+
+                    </div>
+
+
+                    <div class="request-card-footer">
+
+                        <span class="request-id">
+                            <i class="fa-solid fa-hashtag"></i>
+                            SOL-001
+                        </span>
+
+                        <div class="request-actions">
+
+                            <button
+                                type="button"
+                                class="request-button secondary"
+                                disabled
+                                title="Disponible al integrar la gestión de solicitudes"
+                            >
+                                <i class="fa-solid fa-rotate"></i>
+                                Marcar en proceso
+                            </button>
+
+                            <a
+                                href="admin-chat.html"
+                                class="request-button primary"
+                            >
+                                <i class="fa-regular fa-comment-dots"></i>
+                                Chatear
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SOLICITUD 2 -->
+
+                <article class="request-card">
+
+                    <div class="request-card-top">
+
+                        <div class="request-category-icon plumbing">
+                            <i class="fa-solid fa-faucet-drip"></i>
+                        </div>
+
+                        <div class="request-heading">
+
+                            <span class="request-category">
+                                PLOMERÍA
+                            </span>
+
+                            <h3>
+                                Fuga en lavabo del baño
+                            </h3>
+
+                        </div>
+
+                        <span class="request-status status-progress">
+                            <i class="fa-solid fa-circle"></i>
+                            En proceso
+                        </span>
+
+                    </div>
+
+
+                    <p class="request-description">
+                        La llave del lavabo del baño gotea.
+                    </p>
+
+
+                    <div class="request-meta">
+
+                        <span>
+                            <i class="fa-solid fa-user"></i>
+                            Ana Torres
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-building"></i>
+                            Torre Mar · 3B
+                        </span>
+
+                        <span>
+                            <i class="fa-regular fa-calendar"></i>
+                            5 de octubre
+                        </span>
+
+                    </div>
+
+
+                    <div class="request-card-footer">
+
+                        <span class="request-id">
+                            <i class="fa-solid fa-hashtag"></i>
+                            SOL-002
+                        </span>
+
+                        <div class="request-actions">
+
+                            <button
+                                type="button"
+                                class="request-button secondary"
+                                disabled
+                                title="Disponible al integrar la gestión de solicitudes"
+                            >
+                                <i class="fa-solid fa-check"></i>
+                                Marcar resuelta
+                            </button>
+
+                            <a
+                                href="admin-chat.html"
+                                class="request-button primary"
+                            >
+                                <i class="fa-regular fa-comment-dots"></i>
+                                Chatear
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SOLICITUD 3 -->
+
+                <article class="request-card">
+
+                    <div class="request-card-top">
+
+                        <div class="request-category-icon noise">
+                            <i class="fa-solid fa-volume-high"></i>
+                        </div>
+
+                        <div class="request-heading">
+
+                            <span class="request-category">
+                                CONVIVENCIA
+                            </span>
+
+                            <h3>
+                                Reporte de ruido excesivo
+                            </h3>
+
+                        </div>
+
+                        <span class="request-status status-resolved">
+                            <i class="fa-solid fa-circle"></i>
+                            Resuelta
+                        </span>
+
+                    </div>
+
+
+                    <p class="request-description">
+                        Música alta después de las 11 pm.
+                    </p>
+
+
+                    <div class="request-meta">
+
+                        <span>
+                            <i class="fa-solid fa-user"></i>
+                            Marta Núñez
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-building"></i>
+                            Torre Mar · 2A
+                        </span>
+
+                        <span>
+                            <i class="fa-regular fa-calendar"></i>
+                            28 de septiembre
+                        </span>
+
+                    </div>
+
+
+                    <div class="request-card-footer">
+
+                        <span class="request-id">
+                            <i class="fa-solid fa-hashtag"></i>
+                            SOL-003
+                        </span>
+
+                        <span class="resolved-label">
+                            <i class="fa-solid fa-circle-check"></i>
+                            Solicitud finalizada
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             NAVEGACIÓN
+        =========================================== -->
+
+        <nav class="admin-bottom-nav" aria-label="Navegación del administrador">
+
+            <a href="admin-edificios.html">
+                <i class="fa-solid fa-building"></i>
+                Edificios
+            </a>
+
+            <a href="admin-accesos.html">
+                <i class="fa-solid fa-users"></i>
+                Accesos
+            </a>
+
+            <a
+                href="admin-solicitudes.html"
+                class="active"
+                aria-current="page"
+            >
+                <i class="fa-solid fa-clipboard-list"></i>
+                Solicitudes
+            </a>
+
+            <a href="admin-chat.html">
+                <i class="fa-solid fa-comments"></i>
+                Mensajes
+            </a>
+
+        </nav>
+
+
+        <!-- FOOTER -->
+
+        <footer class="requests-footer">
+
+            <span>© 2026 HearHome</span>
+
+            <span>
+                Tu comunidad, tu espacio, tu hogar.
+            </span>
+
+        </footer>
+
+    </main>
+
 </body>
 </html>
