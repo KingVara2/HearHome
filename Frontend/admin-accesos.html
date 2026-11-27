@@ -1,34 +1,471 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Accesos · HearHome</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Control de accesos | HearHome</title>
+
+    <!-- FUENTES -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- ICONOS -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- ESTILOS -->
+    <link rel="stylesheet" href="css/panel-admin.css">
+    <link rel="stylesheet" href="css/admin-accesos.css">
 </head>
+
 <body>
-<div class="contenedor">
-  <header class="encabezado">
-    <h1 class="logo">Hear<span>Home</span></h1>
-    <div class="usuario"><div><b>Sol Vargas</b><br><span class="gris chico">Administrador</span></div><a class="boton-borde" href="index.html">Salir</a></div>
-  </header>
-  <main>
-    <div class="tarjeta">
-      <b>Marta Núñez</b>
-      <p class="gris chico">Quiere unirse a Torre Mar · dice ser de la vivienda 2A</p>
-      <label class="campo">Asignar vivienda<select name="vivienda"><option>2A</option></select></label>
-      <label class="campo">Renta mensual acordada<input name="renta" type="number" placeholder="Ej. 8500"></label>
-      <label class="campo">Fecha del próximo pago<input name="fecha" type="date"></label>
-      <div class="acciones"><button class="boton" type="button">Aprobar</button><a class="boton-borde" href="admin-edificios.html">Rechazar</a></div>
-    </div>
-  </main>
-</div>
-<nav class="barra-nav">
-  <a href="admin-edificios.html">Edificios</a>
-  <a href="admin-accesos.html" class="activa" aria-current="page">Accesos <span class="insignia mal">1</span></a>
-  <a href="admin-solicitudes.html">Solicitudes</a>
-  <a href="admin-chat.html">Chat</a>
-</nav>
+
+    <!-- ==========================================
+         ENCABEZADO
+    =========================================== -->
+
+    <header class="topbar access-topbar">
+
+        <div class="topbar-left">
+
+            <a href="admin-edificios.html" class="brand">
+
+                <span class="brand-icon">
+                    <i class="fa-solid fa-house"></i>
+                </span>
+
+                <span class="brand-name">
+                    Hear<span>Home</span>
+                </span>
+
+            </a>
+
+        </div>
+
+        <div class="topbar-right">
+
+            <span class="admin-role">
+                <i class="fa-solid fa-shield-halved"></i>
+                Administración
+            </span>
+
+            <div class="admin-avatar">
+                <i class="fa-solid fa-user-tie"></i>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==========================================
+         CONTENIDO PRINCIPAL
+    =========================================== -->
+
+    <main class="access-main">
+
+        <!-- BIENVENIDA -->
+
+        <section class="access-welcome">
+
+            <div>
+
+                <span class="section-label">
+                    <i class="fa-solid fa-circle"></i>
+                    PANEL DE ADMINISTRACIÓN
+                </span>
+
+                <h1>
+                    Control de accesos<span class="title-dot">.</span>
+                </h1>
+
+                <p>
+                    Revisa las solicitudes de ingreso y asigna
+                    viviendas a los nuevos residentes.
+                </p>
+
+            </div>
+
+            <a href="admin-edificios.html" class="back-dashboard">
+                <i class="fa-solid fa-arrow-left"></i>
+                Volver a edificios
+            </a>
+
+        </section>
+
+
+        <!-- ==========================================
+             INDICADORES
+        =========================================== -->
+
+        <section class="access-stats">
+
+            <article class="access-stat-card">
+
+                <div class="stat-icon pending-icon">
+                    <i class="fa-solid fa-user-clock"></i>
+                </div>
+
+                <div class="stat-info">
+
+                    <span>SOLICITUDES PENDIENTES</span>
+
+                    <strong>1</strong>
+
+                    <small>Esperando revisión</small>
+
+                </div>
+
+            </article>
+
+
+            <article class="access-stat-card">
+
+                <div class="stat-icon approved-icon">
+                    <i class="fa-solid fa-user-check"></i>
+                </div>
+
+                <div class="stat-info">
+
+                    <span>APROBADAS</span>
+
+                    <strong>0</strong>
+
+                    <small>En esta demostración</small>
+
+                </div>
+
+            </article>
+
+
+            <article class="access-stat-card">
+
+                <div class="stat-icon building-icon">
+                    <i class="fa-solid fa-building"></i>
+                </div>
+
+                <div class="stat-info">
+
+                    <span>PROPIEDAD SOLICITADA</span>
+
+                    <strong class="stat-property-name">
+                        Los Olivos
+                    </strong>
+
+                    <small>Comunidad de ejemplo</small>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- ==========================================
+             PANEL DE SOLICITUDES
+        =========================================== -->
+
+        <section class="access-panel">
+
+            <div class="access-panel-header">
+
+                <div>
+
+                    <span class="section-label">
+                        GESTIÓN DE RESIDENTES
+                    </span>
+
+                    <h2>Solicitudes de ingreso</h2>
+
+                    <p>
+                        Verifica la información del solicitante
+                        antes de autorizar su acceso.
+                    </p>
+
+                </div>
+
+                <span class="access-count">
+                    <i class="fa-solid fa-user-clock"></i>
+                    1 pendiente
+                </span>
+
+            </div>
+
+
+            <!-- SOLICITUD -->
+
+            <article class="access-request-card">
+
+                <!-- CABECERA DE SOLICITUD -->
+
+                <div class="request-header">
+
+                    <div class="resident-identity">
+
+                        <div class="resident-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+
+                        <div class="resident-details">
+
+                            <span class="resident-label">
+                                SOLICITUD DE RESIDENTE
+                            </span>
+
+                            <h3>Marta Núñez</h3>
+
+                            <p>
+                                Solicita acceso a una vivienda
+                                de tu comunidad.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <span class="request-status">
+                        <i class="fa-solid fa-circle"></i>
+                        Pendiente
+                    </span>
+
+                </div>
+
+
+                <!-- INFORMACIÓN SOLICITADA -->
+
+                <div class="request-information">
+
+                    <div class="information-item">
+
+                        <span class="information-icon">
+                            <i class="fa-solid fa-building"></i>
+                        </span>
+
+                        <div>
+
+                            <small>PROPIEDAD</small>
+
+                            <strong>Los Olivos</strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="information-item">
+
+                        <span class="information-icon">
+                            <i class="fa-solid fa-door-open"></i>
+                        </span>
+
+                        <div>
+
+                            <small>VIVIENDA SOLICITADA</small>
+
+                            <strong>Departamento 2A</strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="information-item">
+
+                        <span class="information-icon">
+                            <i class="fa-solid fa-hourglass-half"></i>
+                        </span>
+
+                        <div>
+
+                            <small>ESTADO</small>
+
+                            <strong>Esperando autorización</strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONFIGURACIÓN DE ACCESO -->
+
+                <div class="access-form-section">
+
+                    <div class="form-heading">
+
+                        <div class="form-heading-icon">
+                            <i class="fa-solid fa-sliders"></i>
+                        </div>
+
+                        <div>
+
+                            <h4>Configuración del residente</h4>
+
+                            <p>
+                                Define la vivienda y las condiciones
+                                del pago antes de aprobar el ingreso.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="access-form-grid">
+
+                        <!-- VIVIENDA -->
+
+                        <div class="form-field">
+
+                            <label for="accessUnit">
+                                <i class="fa-solid fa-door-open"></i>
+                                Asignar vivienda
+                            </label>
+
+                            <select id="accessUnit" name="vivienda">
+
+                                <option value="2A" selected>
+                                    Departamento 2A
+                                </option>
+
+                            </select>
+
+                            <small>
+                                Unidad solicitada por el residente.
+                            </small>
+
+                        </div>
+
+
+                        <!-- RENTA -->
+
+                        <div class="form-field">
+
+                            <label for="accessRent">
+                                <i class="fa-solid fa-money-bill-wave"></i>
+                                Renta mensual acordada
+                            </label>
+
+                            <div class="input-money">
+
+                                <span>$</span>
+
+                                <input
+                                    type="number"
+                                    id="accessRent"
+                                    name="renta"
+                                    min="0"
+                                    step="0.01"
+                                    placeholder="Ej. 8500"
+                                >
+
+                                <span>MXN</span>
+
+                            </div>
+
+                            <small>
+                                Importe mensual correspondiente
+                                a la vivienda.
+                            </small>
+
+                        </div>
+
+
+                        <!-- FECHA -->
+
+                        <div class="form-field">
+
+                            <label for="accessDueDate">
+                                <i class="fa-regular fa-calendar"></i>
+                                Fecha del próximo pago
+                            </label>
+
+                            <input
+                                type="date"
+                                id="accessDueDate"
+                                name="fecha"
+                            >
+
+                            <small>
+                                Próximo vencimiento del residente.
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACCIONES -->
+
+                <div class="access-actions">
+
+                    <div class="access-security-note">
+
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                        <span>
+                            Verifica la identidad y la vivienda
+                            antes de autorizar el ingreso.
+                        </span>
+
+                    </div>
+
+
+                    <div class="action-buttons">
+
+                        <button
+                            type="button"
+                            class="action-button reject"
+                            disabled
+                            title="Disponible al integrar el backend"
+                        >
+                            <i class="fa-solid fa-xmark"></i>
+                            Rechazar
+                        </button>
+
+                        <button
+                            type="button"
+                            class="action-button approve"
+                            disabled
+                            title="Disponible al integrar el backend"
+                        >
+                            <i class="fa-solid fa-check"></i>
+                            Aprobar solicitud
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+
+
+        <!-- FOOTER -->
+
+        <footer class="access-footer">
+
+            <span>© 2026 HearHome</span>
+
+            <span>
+                Tu comunidad, tu espacio, tu hogar.
+            </span>
+
+        </footer>
+
+    </main>
+
 </body>
 </html>
