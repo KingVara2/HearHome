@@ -1,34 +1,384 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Chat · HearHome</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mensajes | HearHome</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="css/panel-admin.css">
+    <link rel="stylesheet" href="css/admin-chat.css">
 </head>
+
 <body>
-<div class="contenedor">
-  <header class="encabezado">
-    <h1 class="logo">Hear<span>Home</span></h1>
-    <div class="usuario"><div><b>Sol Vargas</b><br><span class="gris chico">Administrador</span></div><a class="boton-borde" href="index.html">Salir</a></div>
-  </header>
-  <main>
-    <label class="campo">Conversación<select><option>Torre Mar · 3B · Ana Torres</option><option>Torre Mar · 1A · Luis Ramírez</option></select></label>
-    <section class="tarjeta chat">
-      <div class="burbuja"><b>Ana Torres</b>Buenas, ¿cuándo pasa el plomero?<small>10:20</small></div><div class="burbuja mia"><b>Tú</b>Hola Ana, mañana entre 10 y 12.<small>10:32</small></div>
-    </section>
-    <div class="enviar">
-      <input class="entrada" name="mensaje" placeholder="Escribe un mensaje" aria-label="Mensaje">
-      <button class="boton" type="button">Enviar</button>
-    </div>
-  </main>
-</div>
-<nav class="barra-nav">
-  <a href="admin-edificios.html">Edificios</a>
-  <a href="admin-accesos.html">Accesos <span class="insignia mal">1</span></a>
-  <a href="admin-solicitudes.html">Solicitudes</a>
-  <a href="admin-chat.html" class="activa" aria-current="page">Chat</a>
-</nav>
+
+    <!-- ENCABEZADO -->
+
+    <header class="topbar admin-chat-topbar">
+
+        <div class="topbar-left">
+
+            <a href="admin-edificios.html" class="brand">
+                <span class="brand-icon">
+                    <i class="fa-solid fa-house"></i>
+                </span>
+
+                <span class="brand-name">
+                    Hear<span>Home</span>
+                </span>
+            </a>
+
+        </div>
+
+        <div class="topbar-right">
+
+            <span class="admin-role">
+                <i class="fa-solid fa-shield-halved"></i>
+                Administración
+            </span>
+
+            <div class="admin-avatar">
+                <i class="fa-solid fa-user-tie"></i>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="admin-chat-main">
+
+        <!-- TÍTULO -->
+
+        <section class="chat-welcome">
+
+            <div>
+
+                <span class="section-label">
+                    <i class="fa-solid fa-circle"></i>
+                    PANEL DE ADMINISTRACIÓN
+                </span>
+
+                <h1>
+                    Centro de mensajes<span class="title-dot"></span>
+                </h1>
+
+
+            </div>
+
+            <a href="admin-edificios.html" class="back-dashboard">
+                <i class="fa-solid fa-arrow-left"></i>
+                Volver a edificios
+            </a>
+
+        </section>
+
+
+        <!-- INDICADORES -->
+
+        <section class="chat-stats">
+
+            <article class="chat-stat-card">
+
+                <span class="stat-icon">
+                    <i class="fa-solid fa-comments"></i>
+                </span>
+
+                <div>
+                    <small>CONVERSACIONES</small>
+                    <strong>2</strong>
+                    <span>Conversaciones de ejemplo</span>
+                </div>
+
+            </article>
+
+            <article class="chat-stat-card">
+
+                <span class="stat-icon unread-icon">
+                    <i class="fa-solid fa-envelope"></i>
+                </span>
+
+                <div>
+                    <small>SIN LEER</small>
+                    <strong>1</strong>
+                    <span>Mensaje de ejemplo</span>
+                </div>
+
+            </article>
+
+            <article class="chat-stat-card">
+
+                <span class="stat-icon property-icon">
+                    <i class="fa-solid fa-building"></i>
+                </span>
+
+                <div>
+                    <small>PROPIEDAD</small>
+                    <strong>Los Olivos</strong>
+                    <span>Comunidad de ejemplo</span>
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- CHAT -->
+
+        <section class="admin-chat-layout">
+
+            <!-- CONVERSACIONES -->
+
+            <aside class="conversations-panel">
+
+                <div class="conversations-header">
+
+                    <span class="section-label">
+                        BANDEJA DE ENTRADA
+                    </span>
+
+                    <h2>Conversaciones</h2>
+
+                    <p>Mensajes de tus residentes.</p>
+
+                    <div class="conversation-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="search"
+                            placeholder="Buscar residente..."
+                            aria-label="Buscar residente"
+                        >
+                    </div>
+
+                </div>
+
+
+                <div class="conversation-list">
+
+                    <!-- RESIDENTE 1 -->
+
+                    <div class="conversation-item active">
+
+                        <div class="conversation-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+
+                        <div class="conversation-info">
+
+                            <div class="conversation-top">
+                                <strong>Ana Torres</strong>
+                                <small>10:32</small>
+                            </div>
+
+                            <span class="conversation-role">
+                                Torre Mar · Departamento 3B
+                            </span>
+
+                            <p>
+                                Hola Ana, mañana entre 10 y 12.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RESIDENTE 2 -->
+
+                    <div class="conversation-item">
+
+                        <div class="conversation-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+
+                        <div class="conversation-info">
+
+                            <div class="conversation-top">
+                                <strong>Luis Ramírez</strong>
+                                <small>09:15</small>
+                            </div>
+
+                            <span class="conversation-role">
+                                Torre Mar · Departamento 1A
+                            </span>
+
+                            <p>
+                                Buenos días, tengo una consulta.
+                            </p>
+
+                        </div>
+
+                        <span class="unread-indicator">1</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="conversations-footer">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    <p>
+                        Selecciona una conversación para consultar
+                        los mensajes de un residente.
+                    </p>
+
+                </div>
+
+            </aside>
+
+
+            <!-- CONVERSACIÓN ACTIVA -->
+
+            <section class="chat-panel">
+
+                <!-- CABECERA -->
+
+                <div class="chat-panel-header">
+
+                    <div class="chat-contact">
+
+                        <div class="contact-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+
+                        <div>
+
+                            <h2>Ana Torres</h2>
+
+                            <span>
+                                <i class="fa-solid fa-building"></i>
+                                Torre Mar · Departamento 3B
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <span class="contact-type">
+                        <i class="fa-solid fa-house-user"></i>
+                        Residente
+                    </span>
+
+                </div>
+
+
+                <!-- MENSAJES -->
+
+                <div class="chat-messages">
+
+                    <div class="chat-date-divider">
+                        <span>Conversación de ejemplo</span>
+                    </div>
+
+
+                    <!-- MENSAJE DEL RESIDENTE -->
+
+                    <div class="message received">
+
+                        <div class="message-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+
+                        <div class="message-content">
+
+                            <span class="message-sender">
+                                Ana Torres
+                            </span>
+
+                            <div class="message-bubble">
+                                Buenas, ¿cuándo pasa el plomero?
+                            </div>
+
+                            <small class="message-time">
+                                10:20
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RESPUESTA DEL ADMINISTRADOR -->
+
+                    <div class="message sent">
+
+                        <div class="message-content">
+
+                            <span class="message-sender">
+                                Tú · Administración
+                            </span>
+
+                            <div class="message-bubble">
+                                Hola Ana, mañana entre las
+                                10:00 y las 12:00 pasará
+                                el plomero.
+                            </div>
+
+                            <small class="message-time">
+                                10:32
+                                <i class="fa-solid fa-check-double"></i>
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ESCRIBIR MENSAJE -->
+
+                <div class="chat-compose">
+
+                    <div class="compose-input">
+
+                        <i class="fa-regular fa-message"></i>
+
+                        <input
+                            type="text"
+                            placeholder="Escribe tu respuesta..."
+                            aria-label="Escribe tu respuesta"
+                        >
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="send-message-button"
+                        disabled
+                        title="Disponible al integrar la mensajería"
+                    >
+                        <span>Enviar</span>
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+        <footer class="chat-footer">
+            <span>© 2026 HearHome</span>
+            <span>Tu comunidad, tu espacio, tu hogar.</span>
+        </footer>
+
+    </main>
+
 </body>
 </html>
