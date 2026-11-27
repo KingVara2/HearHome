@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrar servicios | HearHome</title>
+
+   
+    <link rel="stylesheet" href="css/admin-servicios.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <main class="main-content">
+        <section class="services-panel">
+
+            <!-- ENCABEZADO DE PROPIEDAD -->
+            <header class="property-header">
+
+                <div class="property-heading">
+                    <div class="property-icon" id="propertyIcon">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+
+                    <div>
+                        <span class="eyebrow">HEARHOME · ADMINISTRACIÓN</span>
+                        <h1>Resumen de propiedad</h1>
+                        <p id="propertyName">Selecciona una propiedad</p>
+                    </div>
+                </div>
+
+                <button type="button"
+                        class="close-services"
+                        id="closeServices"
+                        aria-label="Regresar a mis edificios">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </header>
+
+            <!-- INFORMACIÓN GENERAL -->
+            <div class="property-info">
+                <span>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span id="propertyAddress">Ubicación pendiente</span>
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-door-closed"></i>
+                    <strong id="propertyUnits">0</strong> unidades
+                </span>
+            </div>
+
+            <!-- ADMINISTRACIÓN DE SERVICIOS -->
+            <section class="services-section">
+
+                <div class="section-header">
+                    <div>
+                        <span class="section-label">GESTIÓN DE COBROS</span>
+                        <h2>Servicios</h2>
+                        <p>Administra los servicios y sus importes mensuales.</p>
+                    </div>
+
+                    <button type="button"
+                            class="add-service-button"
+                            id="addService">
+                        <i class="fa-solid fa-plus"></i>
+                        Añadir servicio
+                    </button>
+                </div>
+
+                <!-- ENCABEZADOS -->
+                <div class="services-table-header">
+                    <span>Servicio</span>
+                    <span>Importe mensual</span>
+                    <span>Acciones</span>
+                </div>
+
+                <!-- LISTA DE SERVICIOS -->
+                <div class="services-list" id="servicesList">
+
+                    <div class="service-row">
+                        <div class="service-name">
+                            <span class="service-icon">
+                                <i class="fa-solid fa-bolt"></i>
+                            </span>
+                            <input type="text"
+                                   class="service-name-input"
+                                   value="Luz"
+                                   aria-label="Nombre del servicio">
+                        </div>
+
+                        <div class="service-amount">
+                            <span>$</span>
+                            <input type="number"
+                                   class="service-price-input"
+                                   value="450"
+                                   min="0"
+                                   step="0.01"
+                                   aria-label="Importe de luz">
+                        </div>
+
+                        <button type="button"
+                                class="delete-service"
+                                aria-label="Eliminar servicio">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+
+                    <div class="service-row">
+                        <div class="service-name">
+                            <span class="service-icon">
+                                <i class="fa-solid fa-wifi"></i>
+                            </span>
+                            <input type="text"
+                                   class="service-name-input"
+                                   value="Internet"
+                                   aria-label="Nombre del servicio">
+                        </div>
+
+                        <div class="service-amount">
+                            <span>$</span>
+                            <input type="number"
+                                   class="service-price-input"
+                                   value="600"
+                                   min="0"
+                                   step="0.01"
+                                   aria-label="Importe de internet">
+                        </div>
+
+                        <button type="button"
+                                class="delete-service"
+                                aria-label="Eliminar servicio">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+
+                    <div class="service-row">
+                        <div class="service-name">
+                            <span class="service-icon">
+                                <i class="fa-solid fa-droplet"></i>
+                            </span>
+                            <input type="text"
+                                   class="service-name-input"
+                                   value="Agua"
+                                   aria-label="Nombre del servicio">
+                        </div>
+
+                        <div class="service-amount">
+                            <span>$</span>
+                            <input type="number"
+                                   class="service-price-input"
+                                   value="250"
+                                   min="0"
+                                   step="0.01"
+                                   aria-label="Importe de agua">
+                        </div>
+
+                        <button type="button"
+                                class="delete-service"
+                                aria-label="Eliminar servicio">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- SIN SERVICIOS -->
+                <div class="services-empty" id="servicesEmpty" hidden>
+                    <i class="fa-solid fa-receipt"></i>
+                    <p>Esta propiedad todavía no tiene servicios registrados.</p>
+                </div>
+
+            </section>
+
+            <!-- RENTA MENSUAL -->
+            <section class="rent-section">
+
+                <div class="rent-info">
+                    <span class="rent-icon">
+                        <i class="fa-solid fa-house-circle-check"></i>
+                    </span>
+
+                    <div>
+                        <h2>Renta mensual</h2>
+                        <p>Importe base de la propiedad.</p>
+                    </div>
+                </div>
+
+                <div class="rent-amount">
+                    <span>$</span>
+                    <input type="number"
+                           id="monthlyRent"
+                           value="8500"
+                           min="0"
+                           step="0.01"
+                           aria-label="Importe de renta mensual">
+                    <span class="currency">MXN</span>
+                </div>
+
+            </section>
+
+            <!-- ACCIONES -->
+            <footer class="services-actions">
+                <p class="save-message"
+                   id="saveMessage"
+                   role="status"
+                   aria-live="polite"></p>
+
+                <button type="button"
+                        class="save-services-button"
+                        id="saveServices">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    Guardar cambios
+                </button>
+            </footer>
+
+        </section>
+
+        <footer class="footer">
+            <span>© 2026 HearHome</span>
+            <span>Tu comunidad, tu espacio, tu hogar.</span>
+        </footer>
+    </main>
+
+    <!-- MODAL PARA AÑADIR SERVICIOS -->
+    <div class="service-modal-overlay" id="serviceModal" hidden>
+
+        <div class="service-modal"
+             role="dialog"
+             aria-modal="true"
+             aria-labelledby="serviceModalTitle">
+
+            <button type="button"
+                    class="service-modal-close"
+                    id="closeServiceModal"
+                    aria-label="Cerrar ventana">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="service-modal-icon">
+                <i class="fa-solid fa-plus"></i>
+            </div>
+
+            <h2 id="serviceModalTitle">Añadir servicio</h2>
+            <p>Registra un nuevo servicio para esta propiedad.</p>
+
+            <form id="newServiceForm">
+
+                <label class="form-field">
+                    <span>Nombre del servicio</span>
+                    <input type="text"
+                           id="newServiceName"
+                           placeholder="Ej. Gas, mantenimiento..."
+                           maxlength="80"
+                           required>
+                </label>
+
+                <label class="form-field">
+                    <span>Importe mensual</span>
+                    <div class="amount-field">
+                        <span>$</span>
+                        <input type="number"
+                               id="newServicePrice"
+                               placeholder="0.00"
+                               min="0"
+                               step="0.01"
+                               required>
+                    </div>
+                </label>
+
+                <button type="submit" class="confirm-service-button">
+                    <i class="fa-solid fa-plus"></i>
+                    Agregar servicio
+                </button>
+
+            </form>
+        </div>
+
+    </div>
+    
+    <script src="js/admin-servicios.js" defer></script>
+
+</body>
+</html>

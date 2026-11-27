@@ -1,0 +1,528 @@
+
+/* =========================================
+   HEARHOME - ADMINISTRACIÓN DE SERVICIOS
+========================================= */
+
+:root {
+    --verde: #193e32;
+    --menta: #e8f1e9;
+    --crema: #faf7f1;
+    --terracota: #bb7154;
+    --texto: #25382f;
+    --gris: #84918a;
+    --borde: #e1e8e1;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: var(--crema);
+    color: var(--texto);
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+button, input { font: inherit; }
+button { cursor: pointer; }
+[hidden] { display: none !important; }
+
+/* CONTENEDOR PRINCIPAL */
+
+.main-content {
+    width: min(1100px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 35px 0 15px;
+}
+
+.services-panel {
+    padding: 32px;
+    background: white;
+    border: 1px solid var(--borde);
+    border-radius: 20px;
+    box-shadow: 0 12px 35px #193e320b;
+}
+
+/* ENCABEZADO */
+
+.property-header,
+.property-heading,
+.property-info,
+.section-header,
+.rent-section,
+.rent-info,
+.services-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.property-header {
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--borde);
+}
+
+.property-heading { justify-content: flex-start; }
+
+.property-icon,
+.rent-icon,
+.service-icon,
+.service-modal-icon {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    background: var(--menta);
+    color: var(--verde);
+    border-radius: 13px;
+}
+
+.property-icon {
+    width: 62px;
+    height: 62px;
+    font-size: 27px;
+}
+
+.eyebrow, .section-label {
+    color: var(--terracota);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+}
+
+.property-heading h1 {
+    margin: 6px 0;
+    color: var(--verde);
+    font-size: 27px;
+}
+
+.property-heading p,
+.section-header p,
+.rent-info p {
+    margin: 4px 0 0;
+    color: var(--gris);
+    font-size: 13px;
+}
+
+.close-services,
+.service-modal-close {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 11px;
+    background: var(--menta);
+    color: var(--verde);
+    font-size: 17px;
+}
+
+.close-services:hover,
+.service-modal-close:hover {
+    background: var(--verde);
+    color: white;
+}
+
+.property-info {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 18px 0;
+    color: var(--gris);
+    font-size: 12px;
+}
+
+.property-info > span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.property-info i { color: var(--terracota); }
+.property-info strong { color: var(--verde); }
+
+/* SECCIÓN SERVICIOS */
+
+.services-section {
+    margin-top: 15px;
+    padding: 26px;
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+}
+
+.section-header { margin-bottom: 26px; }
+
+.section-header h2,
+.rent-info h2 {
+    margin: 6px 0;
+    color: var(--verde);
+    font-size: 21px;
+}
+
+.add-service-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 13px 18px;
+    border: none;
+    border-radius: 10px;
+    background: var(--terracota);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.add-service-button:hover { background: #a45e43; }
+
+/* LISTADO DE SERVICIOS */
+
+.services-table-header,
+.service-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 190px 85px;
+    align-items: center;
+    gap: 18px;
+}
+
+.services-table-header {
+    padding: 12px 18px;
+    color: var(--gris);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.services-table-header span:last-child { text-align: center; }
+
+.services-list {
+    display: grid;
+    gap: 10px;
+}
+
+.service-row {
+    padding: 13px 18px;
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    background: #fbfcfa;
+}
+
+.service-name,
+.service-amount {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.service-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+}
+
+.service-name-input,
+.service-price-input,
+.rent-amount input {
+    min-width: 0;
+    border: 1px solid transparent;
+    outline: none;
+    background: transparent;
+    color: var(--verde);
+    font-weight: 700;
+    transition: border-color .2s, background .2s;
+}
+
+.service-name-input {
+    width: 100%;
+    padding: 9px;
+    font-size: 14px;
+}
+
+.service-price-input {
+    width: 100%;
+    padding: 9px;
+    font-size: 15px;
+    text-align: right;
+}
+
+.service-amount {
+    padding: 0 10px;
+    border: 1px solid var(--borde);
+    border-radius: 9px;
+    background: white;
+    color: var(--verde);
+}
+
+.service-name-input:focus,
+.service-price-input:focus,
+.rent-amount input:focus {
+    border-color: var(--terracota);
+    background: white;
+    border-radius: 7px;
+}
+
+.delete-service {
+    justify-self: center;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 9px;
+    background: #f9e9e5;
+    color: #b35348;
+}
+
+.delete-service:hover {
+    background: #b35348;
+    color: white;
+}
+
+.services-empty {
+    padding: 45px 15px;
+    text-align: center;
+    color: var(--gris);
+}
+
+.services-empty i {
+    margin-bottom: 12px;
+    font-size: 30px;
+}
+
+/* RENTA MENSUAL */
+
+.rent-section {
+    margin-top: 22px;
+    padding: 23px 26px;
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+    background: #f5f9f5;
+}
+
+.rent-info { justify-content: flex-start; }
+
+.rent-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 21px;
+}
+
+.rent-amount {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    border: 1px solid var(--borde);
+    border-radius: 11px;
+    background: white;
+    color: var(--verde);
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.rent-amount input {
+    width: 125px;
+    font-size: 22px;
+    text-align: right;
+}
+
+.currency {
+    color: var(--gris);
+    font-size: 11px;
+}
+
+/* BOTÓN GUARDAR */
+
+.services-actions {
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.save-message {
+    margin: 0 auto 0 0;
+    color: var(--verde);
+    font-size: 12px;
+}
+
+.save-services-button,
+.confirm-service-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 10px;
+    background: var(--verde);
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.save-services-button:hover,
+.confirm-service-button:hover {
+    background: #315d4b;
+}
+
+/* MODAL AÑADIR SERVICIO */
+
+.service-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: #0f231a99;
+    backdrop-filter: blur(5px);
+}
+
+.service-modal {
+    position: relative;
+    width: min(440px, 100%);
+    max-height: 90dvh;
+    overflow-y: auto;
+    padding: 30px;
+    border-radius: 19px;
+    background: white;
+    box-shadow: 0 25px 70px #0003;
+}
+
+.service-modal-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+}
+
+.service-modal-icon {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.service-modal h2 {
+    margin: 0 0 8px;
+    color: var(--verde);
+    font-size: 23px;
+}
+
+.service-modal > p {
+    margin-bottom: 25px;
+    color: var(--gris);
+    font-size: 13px;
+}
+
+#newServiceForm {
+    display: grid;
+    gap: 18px;
+}
+
+.form-field {
+    display: grid;
+    gap: 8px;
+}
+
+.form-field > span {
+    color: var(--verde);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.form-field > input,
+.amount-field {
+    width: 100%;
+    min-height: 45px;
+    padding: 0 13px;
+    border: 1px solid var(--borde);
+    border-radius: 9px;
+    outline: none;
+    background: #fbfcfa;
+    color: var(--verde);
+}
+
+.form-field > input:focus,
+.amount-field:focus-within {
+    border-color: var(--terracota);
+}
+
+.amount-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.amount-field input {
+    width: 100%;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--verde);
+}
+
+.confirm-service-button {
+    width: 100%;
+    margin-top: 6px;
+}
+
+/* PIE DE PÁGINA */
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 22px 0;
+    color: var(--gris);
+    font-size: 11px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+    .main-content {
+        width: calc(100% - 24px);
+        padding-top: 20px;
+    }
+
+    .services-panel { padding: 20px; }
+    .services-section { padding: 16px; }
+
+    .section-header,
+    .rent-section {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .services-table-header { display: none; }
+
+    .service-row {
+        grid-template-columns: minmax(0, 1fr) 110px 36px;
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .service-icon { display: none; }
+    .service-amount { padding: 0 5px; }
+    .service-price-input { font-size: 13px; }
+
+    .rent-amount { justify-content: center; }
+    .add-service-button { width: 100%; }
+}
+
+@media (max-width: 420px) {
+    .property-heading h1 { font-size: 21px; }
+    .property-icon { width: 48px; height: 48px; }
+
+    .service-row {
+        grid-template-columns: minmax(0, 1fr) 90px 32px;
+        gap: 5px;
+    }
+
+    .service-name-input,
+    .service-price-input { padding: 5px; }
+
+    .save-services-button { width: 100%; }
+    .footer { justify-content: center; text-align: center; }
+}
